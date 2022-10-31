@@ -1,7 +1,6 @@
-.idea/
-.git/
-.vscode/
-.phan/
+.idea
+.vscode
+.phan
 README.html
 composer.json
 .gitconfig
