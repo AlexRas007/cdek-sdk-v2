@@ -137,7 +137,7 @@ trait ContactTrait
      */
     public function setPhones($number, $additional = null)
     {
-        $args = \get_defined_vars();
+        $args = get_defined_vars();
         $this->phones[] = Phone::express($args);
 
         return $this;

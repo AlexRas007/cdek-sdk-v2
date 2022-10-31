@@ -27,7 +27,7 @@ class DeliveryPointsResponse extends Source
     /**
      * Адрес ПВЗ.
      *
-     * @var array
+     * @var LocationResponse
      */
     protected $location;
 
@@ -137,7 +137,7 @@ class DeliveryPointsResponse extends Source
     /**
      * Получить параметр - адрес ПВЗ.
      *
-     * @return array
+     * @return LocationResponse
 	 */
     public function getLocation()
     {

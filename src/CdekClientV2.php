@@ -147,9 +147,9 @@ final class CdekClientV2
             $headers['Accept'] = 'application/json';
         }
 
-        $headers['Authorization'] = 'Bearer '.$this->token;
+        $headers['Authorization'] = 'Bearer ' . $this->token;
 
-        if ( ! empty($params) && is_object($params)) {
+        if (!empty($params) && is_object($params)) {
             $params = $params->prepareRequest();
         }
 
@@ -211,13 +211,13 @@ final class CdekClientV2
             $this->token = isset($token_info->access_token) ? $token_info->access_token : '';
             $this->expire = isset($token_info->expires_in) ? $token_info->expires_in : 0;
             $this->expire = (int) (time() + $this->expire - 10);
-            if ( ! empty($this->memory_save_fu)) {
+            if (!empty($this->memory_save_fu)) {
                 $this->saveToken($this->memory_save_fu);
             }
 
             return true;
         }
-        throw new CdekV2AuthException(Constants::AUTH_FAIL);
+        throw new CdekV2AuthException("error_auth", Constants::AUTH_FAIL);
     }
 
     /**
@@ -232,10 +232,10 @@ final class CdekClientV2
 
         // Если не передан верный сохраненный массив данных для авторизации, функция возвратит false
 
-        if ( ! isset($check_memory['account_type'])
+        if (!isset($check_memory['account_type'])
         || empty($check_memory)
-        || ! isset($check_memory['expires_in'])
-        || ! isset($check_memory['access_token'])) {
+        || !isset($check_memory['expires_in'])
+        || !isset($check_memory['access_token'])) {
             return false;
         }
 
@@ -246,7 +246,7 @@ final class CdekClientV2
 			return false;
 		}
 
-        return ($check_memory['expires_in'] > time() && ! empty($check_memory['access_token']))
+        return ($check_memory['expires_in'] > time() && !empty($check_memory['access_token']))
             ? $this->setToken($check_memory['access_token'])
             : false;
     }
@@ -329,7 +329,7 @@ final class CdekClientV2
     private function checkErrors($method, $response, $apiResponse)
     {
         if (empty($apiResponse)) {
-            throw new CdekV2RequestException('От API CDEK при вызове метода '.$method.' пришел пустой ответ', $response->getStatusCode());
+            throw new CdekV2RequestException("empty_response", 'От API CDEK при вызове метода ' . $method . ' пришел пустой ответ', $response->getStatusCode());
         }
         if (
             ($response->getStatusCode() > 202 && isset($apiResponse['requests'][0]['errors']))
@@ -339,7 +339,7 @@ final class CdekClientV2
                 $apiResponse['requests'][0]['errors'][0]['code'],
                 $apiResponse['requests'][0]['errors'][0]['message']
             );
-            throw new CdekV2RequestException('От API CDEK при вызове метода '.$method.' получена ошибка: '.$message, $response->getStatusCode());
+            throw new CdekV2RequestException($apiResponse['requests'][0]['errors'][0]['code'], 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message, $response->getStatusCode());
         }
         if (
             ($response->getStatusCode() == 200 && isset($apiResponse['errors']))
@@ -349,11 +349,11 @@ final class CdekClientV2
                 $apiResponse['errors'][0]['code'],
                 $apiResponse['errors'][0]['message']
             );
-            throw new CdekV2RequestException('От API CDEK при вызове метода '.$method.' получена ошибка: '.$message, $response->getStatusCode());
+            throw new CdekV2RequestException($apiResponse['errors'][0]['code'], 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message, $response->getStatusCode());
         }
-        if ($response->getStatusCode() > 202 && ! isset($apiResponse['requests'][0]['errors'])) {
-            throw new CdekV2RequestException('Неверный код ответа от сервера CDEK при вызове метода 
-             '.$method.': '.$response->getStatusCode(), $response->getStatusCode());
+        if ($response->getStatusCode() > 202 && !isset($apiResponse['requests'][0]['errors'])) {
+            throw new CdekV2RequestException("error_response", 'Неверный код ответа от сервера CDEK при вызове метода 
+             ' . $method . ': ' . $response->getStatusCode(), $response->getStatusCode());
         }
 
         return false;
@@ -369,7 +369,8 @@ final class CdekClientV2
 	 */
     public function getRegions($filter = null)
     {
-        $params = ( ! empty($filter)) ? $filter->regions() : [];
+        $params = (!empty($filter)) ? $filter->regions() : [];
+
         $resp = [];
         $response = $this->apiRequest('GET', Constants::REGIONS_URL, $params);
 
@@ -390,7 +391,7 @@ final class CdekClientV2
 	 */
     public function getCities($filter = null)
     {
-        $params = ( ! empty($filter)) ? $filter->cities() : [];
+        $params = (!empty($filter)) ? $filter->cities() : [];
 
         $resp = [];
         $response = $this->apiRequest('GET', Constants::CITIES_URL, $params);
@@ -434,7 +435,7 @@ final class CdekClientV2
         if ($tariff->getTariffCode()) {
             return new TariffResponse($this->apiRequest('POST', Constants::CALC_TARIFF_URL, $tariff));
         }
-        throw new \InvalidArgumentException('Не установлен обязательный параметр  tariff_code');
+        throw new \InvalidArgumentException('Не установлен обязательный параметр: tariff_code');
     }
 
 	/**
@@ -483,7 +484,7 @@ final class CdekClientV2
 	 */
     public function deleteOrder($uuid)
     {
-        $request = new EntityResponse($this->apiRequest('DELETE', Constants::ORDERS_URL.'/'.$uuid));
+        $request = new EntityResponse($this->apiRequest('DELETE', Constants::ORDERS_URL . '/' . $uuid));
 
 		return $request->getRequests()[0]->getState() === 'INVALID';
 	}
@@ -499,7 +500,7 @@ final class CdekClientV2
 	 */
     public function cancelOrder($order_uuid)
     {
-        return new EntityResponse($this->apiRequest('POST', Constants::ORDERS_URL.'/'.$order_uuid.'/'.'refusal'));
+        return new EntityResponse($this->apiRequest('POST', Constants::ORDERS_URL . '/' . $order_uuid . '/' . 'refusal'));
     }
 
 	/**
@@ -552,7 +553,7 @@ final class CdekClientV2
 	 */
     public function getOrderInfoByUuid($uuid)
     {
-        return new OrderResponse($this->apiRequest('GET', Constants::ORDERS_URL.'/'.$uuid));
+        return new OrderResponse($this->apiRequest('GET', Constants::ORDERS_URL . '/' . $uuid));
     }
 
 	/**
@@ -577,7 +578,7 @@ final class CdekClientV2
 	 */
     public function getBarcode($uuid)
     {
-        return new PrintResponse($this->apiRequest('GET', Constants::BARCODES_URL.'/'.$uuid));
+        return new PrintResponse($this->apiRequest('GET', Constants::BARCODES_URL . '/' . $uuid), true);
     }
 
 	/**
@@ -590,7 +591,7 @@ final class CdekClientV2
 	 */
     public function getBarcodePdf($uuid)
     {
-        return $this->apiRequest('GET', Constants::BARCODES_URL.'/'.$uuid.'.pdf');
+        return $this->apiRequest('GET', Constants::BARCODES_URL . '/' . $uuid . '.pdf');
     }
 
 	/**
@@ -616,7 +617,7 @@ final class CdekClientV2
 	 */
     public function getInvoice($uuid)
     {
-        return new PrintResponse($this->apiRequest('GET', Constants::INVOICE_URL.'/'.$uuid));
+        return new PrintResponse($this->apiRequest('GET', Constants::INVOICE_URL . '/' . $uuid), true);
     }
 
 	/**
@@ -629,7 +630,7 @@ final class CdekClientV2
 	 */
     public function getInvoicePdf($uuid)
     {
-        return $this->apiRequest('GET', Constants::INVOICE_URL.'/'.$uuid.'.pdf');
+        return $this->apiRequest('GET', Constants::INVOICE_URL . '/' . $uuid . '.pdf');
     }
 
 	/**
@@ -655,7 +656,7 @@ final class CdekClientV2
 	 */
     public function getAgreement($uuid)
     {
-        return new AgreementResponse($this->apiRequest('GET', Constants::COURIER_AGREEMENTS_URL.'/'.$uuid));
+        return new AgreementResponse($this->apiRequest('GET', Constants::COURIER_AGREEMENTS_URL . '/' . $uuid));
     }
 
 	/**
@@ -681,7 +682,7 @@ final class CdekClientV2
 	 */
     public function getIntakes($uuid)
     {
-        return new IntakesResponse($this->apiRequest('GET', Constants::INTAKES_URL.'/'.$uuid));
+        return new IntakesResponse($this->apiRequest('GET', Constants::INTAKES_URL . '/' . $uuid));
     }
 
 	/**
@@ -694,7 +695,7 @@ final class CdekClientV2
 	 */
     public function deleteIntakes($uuid)
     {
-        $this->apiRequest('DELETE', Constants::INTAKES_URL.'/'.$uuid);
+        $this->apiRequest('DELETE', Constants::INTAKES_URL . '/' . $uuid);
 
         return false;
     }
@@ -759,7 +760,7 @@ final class CdekClientV2
 	 */
     public function getWebhook($uuid)
     {
-        return new EntityResponse($this->apiRequest('GET', Constants::WEBHOOKS_URL.'/'.$uuid));
+        return new EntityResponse($this->apiRequest('GET', Constants::WEBHOOKS_URL . '/' . $uuid));
     }
 
 	/**
@@ -771,6 +772,6 @@ final class CdekClientV2
 	 */
     public function deleteWebhooks($uuid)
     {
-        return new EntityResponse($this->apiRequest('DELETE', Constants::WEBHOOKS_URL.'/'.$uuid));
+        return new EntityResponse($this->apiRequest('DELETE', Constants::WEBHOOKS_URL . '/' . $uuid));
     }
 }

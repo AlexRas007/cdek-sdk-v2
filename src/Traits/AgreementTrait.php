@@ -127,6 +127,6 @@ trait AgreementTrait
             return $this;
         }
         throw new \InvalidArgumentException('Адрес доставки
-            Нельзя передавать одновременно с параметром кода ПВЗ delivery_point');
+            нельзя передавать одновременно с параметром кода ПВЗ delivery_point');
     }
 }

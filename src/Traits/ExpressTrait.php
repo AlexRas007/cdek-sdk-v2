@@ -19,7 +19,7 @@ trait ExpressTrait
         $instance = new self();
 
         foreach ($args as $key => $value) {
-            if (!\is_null($value)) {
+            if (!is_null($value)) {
                 $instance->{$key} = $value;
             }
         }

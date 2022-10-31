@@ -164,8 +164,8 @@ trait ItemTrait
      */
     public function setPayment($value, $vat_sum = null, $vat_rate = null)
     {
-        if (!\is_null($value)) {
-            $args = \get_defined_vars();
+        if (!is_null($value)) {
+            $args = get_defined_vars();
             $this->payment = Money::express($args);
         }
 

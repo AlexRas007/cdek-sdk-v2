@@ -18,7 +18,7 @@ class Tariff extends Source
     /**
      * Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm).
      *
-     * @var \DateTimeInterface
+     * @var string
      */
     protected $date;
 
@@ -32,11 +32,11 @@ class Tariff extends Source
     /**
      * Установка даты и времени планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm).
      *
-     * @param \DateTimeInterface $date Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm)
+     * @param string $date Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm)
      *
      * @return self
      */
-    public function setDate(\DateTimeInterface $date)
+    public function setDate($date)
     {
         $this->date = $date;
 
@@ -163,7 +163,7 @@ class Tariff extends Source
             } elseif (empty($key) && array_key_exists($value, $services_pattern)) {
                 $services_array[] = (new Services())->setCode($value);
             } else {
-                throw new \InvalidArgumentException('Передан не допустимый код тарифа:'.$service_name, 1);
+                throw new \InvalidArgumentException('Передан не допустимый код тарифа: ' . $service_name, 1);
             }
         }
         $this->services = $services_array;

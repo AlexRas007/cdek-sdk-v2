@@ -243,7 +243,7 @@ class Order extends Source
     public function setDeliveryRecipientCost($value = 0.0, $vat_sum = null, $vat_rate = null)
     {
         if (is_float($value)) {
-            $args = \get_defined_vars();
+            $args = get_defined_vars();
             $this->delivery_recipient_cost = Money::express($args);
         }
 
@@ -261,7 +261,7 @@ class Order extends Source
     public function setDeliveryRecipientCostAdv($threshold, $sum, $vat_sum = null, $vat_rate = null)
     {
         if (!empty($threshold)) {
-            $args = \get_defined_vars();
+            $args = get_defined_vars();
             $this->delivery_recipient_cost_adv = Threshold::express($args);
         }
 
