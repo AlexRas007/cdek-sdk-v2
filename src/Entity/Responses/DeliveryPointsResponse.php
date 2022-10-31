@@ -10,6 +10,7 @@ use AntistressStore\CdekSDK2\Traits\DeliveryPointsTrait;
 class DeliveryPointsResponse extends Source
 {
     use DeliveryPointsTrait;
+
     /**
      * Название ПВЗ.
      *
@@ -27,7 +28,7 @@ class DeliveryPointsResponse extends Source
     /**
      * Адрес ПВЗ.
      *
-     * @var array
+     * @var LocationResponse
      */
     protected $location;
 

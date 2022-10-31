@@ -19,44 +19,66 @@ class Source implements JsonSerializable
      *
      * @return array
      */
-    public function prepareRequest()
+    public function prepareRequest($object = null)
     {
-        $entity_vars = $this->pattern ?? \get_object_vars($this);
+        if ($object === null) {
+            $object = $this;
+        }
+
+        $vars = get_object_vars($object);
+        unset($vars['this']);
+
+        $pattern = isset($object->pattern) ? array_keys($object->pattern) : [];
 
         $dynamic = [];
-        
-        foreach ($entity_vars as $key => $val) {
-            if (\is_null($this->{$key})) {
+        foreach ($vars as $key => $var) {
+            if (is_null($var) || (!empty($pattern) && !in_array($key, $pattern, true))) {
                 continue;
             }
 
-            if (!\is_object($this->{$key}) && !is_array($this->{$key})) {
-                $dynamic[$key] = $this->{$key};
-            } elseif (is_array($this->{$key})) {
-                foreach ($this->{$key} as $k => $v) {
-                    $array_from_object = \get_object_vars($v);
-
-                    $array_from_object_null_filtered = \array_filter($array_from_object);
-                    if (!empty($array_from_object_null_filtered)) {
-                        $dynamic[$key][] = $array_from_object_null_filtered;
-                    } else {
-                        continue;
-                    }
-                }
-            } else {
-                $a = \get_object_vars($this->{$key});
-                $dynamic[$key] = \array_filter($a, function ($value) {
-                    return $value !== null;
-                });
+            $dynamic_val = self::prepareField($var);
+            if ((!is_array($dynamic_val) && !is_null($dynamic_val)) || !empty($dynamic_val)) {
+                $dynamic[$key] = $dynamic_val;
             }
         }
 
         return $dynamic;
     }
 
+    /**
+     * Формирует массив параметров на основе одного поля.
+     * Удаляет пустые значения.
+     *
+     * @return mixed
+     */
+    public static function prepareField($value)
+    {
+        if (is_object($value)) {
+            return $value->prepareRequest();
+        }
+
+        if (is_array($value)) {
+            $dynamic = [];
+            foreach ($value as $key => $val) {
+                $dynamic_val = self::prepareField($val);
+                if ((!is_array($dynamic_val) && !is_null($dynamic_val)) || !empty($dynamic_val)) {
+                    $dynamic[$key] = $dynamic_val;
+                }
+            }
+
+            return $dynamic;
+        }
+
+        return $value;
+    }
+
+    /**
+     * @return array
+     * @noinspection PhpLanguageLevelInspection
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return \get_object_vars($this);
+        return get_object_vars($this);
     }
 }

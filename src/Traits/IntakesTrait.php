@@ -10,7 +10,6 @@
 namespace AntistressStore\CdekSDK2\Traits;
 
 use AntistressStore\CdekSDK2\Entity\Requests\Location;
-use AntistressStore\CdekSDK2\Entity\Responses\LocationResponse;
 
 trait IntakesTrait
 {
@@ -84,10 +83,9 @@ trait IntakesTrait
      * Установить параметр - дата ожидания курьера (дата в формате ISO 8601: YYYY-MM-DD).
      *
      * @param string $intake_date дата ожидания курьера (дата в формате ISO 8601: YYYY-MM-DD)
-     *
      * @return self
      */
-    public function setIntakeDate(string $intake_date)
+    public function setIntakeDate($intake_date)
     {
         $this->intake_date = $intake_date;
 
@@ -108,10 +106,9 @@ trait IntakesTrait
      * Установить параметр - время начала ожидания курьера (время в формате ISO 8601: hh:mm).
      *
      * @param string $intake_time_from время начала ожидания курьера (время в формате ISO 8601: hh:mm)
-     *
      * @return self
      */
-    public function setIntakeTimeFrom(string $intake_time_from)
+    public function setIntakeTimeFrom($intake_time_from)
     {
         $this->intake_time_from = $intake_time_from;
 
@@ -132,10 +129,9 @@ trait IntakesTrait
      * Установить параметр - время окончания ожидания курьера (время в формате ISO 8601: hh:mm).
      *
      * @param string $intake_time_to время окончания ожидания курьера (время в формате ISO 8601: hh:mm)
-     *
      * @return self
      */
-    public function setIntakeTimeTo(string $intake_time_to)
+    public function setIntakeTimeTo($intake_time_to)
     {
         $this->intake_time_to = $intake_time_to;
 
@@ -156,10 +152,9 @@ trait IntakesTrait
      * Установить параметр - время начала обеда, должно входить в диапазон [intake_time_to;intake_time_to].
      *
      * @param string $lunch_time_from время начала обеда, должно входить в диапазон [intake_time_to;intake_time_to]
-     *
      * @return self
      */
-    public function setLunchTimeFrom(string $lunch_time_from)
+    public function setLunchTimeFrom($lunch_time_from)
     {
         $this->lunch_time_from = $lunch_time_from;
 
@@ -180,10 +175,9 @@ trait IntakesTrait
      * Установить параметр - время окончания обеда, должно входить в диапазон [intake_time_to;intake_time_to].
      *
      * @param string $lunch_time_to время окончания обеда, должно входить в диапазон [intake_time_to;intake_time_to]
-     *
      * @return self
      */
-    public function setLunchTimeTo(string $lunch_time_to)
+    public function setLunchTimeTo($lunch_time_to)
     {
         $this->lunch_time_to = $lunch_time_to;
 
@@ -204,10 +198,9 @@ trait IntakesTrait
      * Установить параметр - описание груза.
      *
      * @param string $name описание груза
-     *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -228,10 +221,9 @@ trait IntakesTrait
      * Установить параметр - необходим прозвон отправителя.
      *
      * @param bool $need_call необходим прозвон отправителя
-     *
      * @return self
      */
-    public function setNeedCall(bool $need_call)
+    public function setNeedCall($need_call)
     {
         $this->need_call = $need_call;
 
@@ -241,7 +233,7 @@ trait IntakesTrait
     /**
      * Получить параметр - адрес отправителя (забора).
      *
-     * @return LocationResponse
+     * @return Location
      */
     public function getFromLocation()
     {
@@ -252,7 +244,6 @@ trait IntakesTrait
      * Установить параметр - адрес отправителя (забора).
      *
      * @param Location $from_location адрес отправителя (забора)
-     *
      * @return self
      */
     public function setFromLocation(Location $from_location)

@@ -52,10 +52,9 @@ trait SellerTrait
      * Устанавливает наименование истинного продавца.
      *
      * @param string $name Наименование истинного продавца
-     *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -66,10 +65,9 @@ trait SellerTrait
      * Устанавливает иНН истинного продавца.
      *
      * @param int $inn ИНН истинного продавца
-     *
      * @return self
      */
-    public function setInn(int $inn)
+    public function setInn($inn)
     {
         $this->inn = $inn;
 
@@ -80,10 +78,9 @@ trait SellerTrait
      * Устанавливает телефон истинного продавца.
      *
      * @param string $phone Телефон истинного продавца
-     *
      * @return self
      */
-    public function setPhone(string $phone)
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 
@@ -94,10 +91,9 @@ trait SellerTrait
      * Устанавливает код формы собственности.
      *
      * @param int $ownership_form Код формы собственности
-     *
      * @return self
      */
-    public function setOwnershipForm(int $ownership_form)
+    public function setOwnershipForm($ownership_form)
     {
         $this->ownership_form = $ownership_form;
 
@@ -108,10 +104,9 @@ trait SellerTrait
      * Устанавливает только для международных заказов.
      *
      * @param string $address Только для международных заказов
-     *
      * @return self
      */
-    public function setAddress(string $address)
+    public function setAddress($address)
     {
         $this->address = $address;
 

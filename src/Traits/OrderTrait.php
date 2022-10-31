@@ -9,7 +9,10 @@
 
 namespace AntistressStore\CdekSDK2\Traits;
 
-use AntistressStore\CdekSDK2\Entity\Requests\{Contact, Money, Seller, Threshold};
+use AntistressStore\CdekSDK2\Entity\Requests\Contact;
+use AntistressStore\CdekSDK2\Entity\Requests\Money;
+use AntistressStore\CdekSDK2\Entity\Requests\Seller;
+use AntistressStore\CdekSDK2\Entity\Requests\Threshold;
 
 trait OrderTrait
 {

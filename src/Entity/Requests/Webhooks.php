@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) Antistress.Store® 2021. All rights reserved.
  * See LICENSE.md for license details.
@@ -28,10 +29,9 @@ class Webhooks extends Source
      * Установить параметр - uRL клиента для получения webhook.
      *
      * @param string $url URL клиента для получения webhook
-     *
      * @return self
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
 
@@ -41,14 +41,10 @@ class Webhooks extends Source
     /**
      * Установить параметр - тип события.
      *
-     * @param string $type
-     *                     Тип события:
-     *                     'ORDER_STATUS' - событие по статусам
-     *                     'PRINT_FORM' - готовность печатной формы
-     *
+     * @param string $type Тип события: 'ORDER_STATUS' - событие по статусам, 'PRINT_FORM' - готовность печатной формы
      * @return self
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         $this->type = $type;
 

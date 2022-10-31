@@ -9,8 +9,9 @@
 
 namespace AntistressStore\CdekSDK2\Entity\Responses;
 
+use AntistressStore\CdekSDK2\Traits\CommonTrait;
 use AntistressStore\CdekSDK2\Traits\IntakesTrait;
-use AntistressStore\CdekSDK2\Traits\{CommonTrait, PackageTrait};
+use AntistressStore\CdekSDK2\Traits\PackageTrait;
 
 /**
  * Class Intakes.
@@ -19,7 +20,8 @@ class IntakesResponse extends Source
 {
     use CommonTrait, PackageTrait {
         CommonTrait::getComment insteadof PackageTrait;
-        CommonTrait::setComment insteadof PackageTrait; }
+        CommonTrait::setComment insteadof PackageTrait;
+    }
     use IntakesTrait;
 
     /**

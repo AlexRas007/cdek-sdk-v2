@@ -115,10 +115,9 @@ trait ItemTrait
      * Устанавливает наименование товара.
      *
      * @param string $name Наименование товара
-     *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -129,10 +128,9 @@ trait ItemTrait
      * Устанавливает идентификатор/артикул товара.
      *
      * @param string $ware_key Идентификатор/артикул товара
-     *
      * @return self
      */
-    public function setWareKey(string $ware_key)
+    public function setWareKey($ware_key)
     {
         $this->ware_key = $ware_key;
 
@@ -143,10 +141,9 @@ trait ItemTrait
      * Устанавливает маркировка товара/вложения.
      *
      * @param string $marking Маркировка товара/вложения
-     *
      * @return self
      */
-    public function setMarking(string $marking)
+    public function setMarking($marking)
     {
         $this->marking = $marking;
 
@@ -156,16 +153,15 @@ trait ItemTrait
     /**
      * Устанавливает параметр оплата за товар при получении.
      *
-     * @param float      $value    Оплата за товар при получении
-     * @param float|null $vat_sum  Сумма НДС
-     * @param int|null   $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
-     *
+     * @param float $value Оплата за товар при получении
+     * @param float|null $vat_sum Сумма НДС
+     * @param int|null $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
      * @return self
      */
     public function setPayment($value, $vat_sum = null, $vat_rate = null)
     {
-        if (!\is_null($value)) {
-            $args = \get_defined_vars();
+        if (!is_null($value)) {
+            $args = get_defined_vars();
             $this->payment = Money::express($args);
         }
 
@@ -176,10 +172,9 @@ trait ItemTrait
      * Устанавливает объявленную стоимость товара.
      *
      * @param float $cost Объявленная стоимость товара
-     *
      * @return self
      */
-    public function setCost(float $cost)
+    public function setCost($cost)
     {
         $this->cost = $cost;
 
@@ -190,10 +185,9 @@ trait ItemTrait
      * Устанавливает вес (за единицу товара, в граммах).
      *
      * @param int $weight Вес (за единицу товара, в граммах)
-     *
      * @return self
      */
-    public function setWeight(int $weight)
+    public function setWeight($weight)
     {
         $this->weight = $weight;
 
@@ -204,10 +198,9 @@ trait ItemTrait
      * Устанавливает вес брутто (только для международных заказов).
      *
      * @param int $weight_gross Вес брутто (только для международных заказов)
-     *
      * @return self
      */
-    public function setWeightGross(int $weight_gross)
+    public function setWeightGross($weight_gross)
     {
         $this->weight_gross = $weight_gross;
 
@@ -218,10 +211,9 @@ trait ItemTrait
      * Устанавливает количество единиц товара.
      *
      * @param int $amount Количество единиц товара
-     *
      * @return self
      */
-    public function setAmount(int $amount)
+    public function setAmount($amount)
     {
         $this->amount = $amount;
 
@@ -232,10 +224,9 @@ trait ItemTrait
      * Устанавливает наименование на иностранном языке.
      *
      * @param string $name_i18n Наименование на иностранном языке
-     *
      * @return self
      */
-    public function setName_i18n(string $name_i18n)
+    public function setName_i18n($name_i18n)
     {
         $this->name_i18n = $name_i18n;
 
@@ -246,10 +237,9 @@ trait ItemTrait
      * Устанавливает бренд на иностранном языке.
      *
      * @param string $brand Бренд на иностранном языке
-     *
      * @return self
      */
-    public function setBrand(string $brand)
+    public function setBrand($brand)
     {
         $this->brand = $brand;
 
@@ -260,10 +250,9 @@ trait ItemTrait
      * Устанавливает код страны в формате ISO_3166-1_alpha-2.
      *
      * @param string $country_code Код страны в формате ISO_3166-1_alpha-2
-     *
      * @return self
      */
-    public function setCountryCode(string $country_code)
+    public function setCountryCode($country_code)
     {
         $this->country_code = $country_code;
 
@@ -274,10 +263,9 @@ trait ItemTrait
      * Устанавливает код материала.
      *
      * @param int $material Код материала
-     *
      * @return self
      */
-    public function setMaterial(int $material)
+    public function setMaterial($material)
     {
         $this->material = $material;
 
@@ -288,10 +276,9 @@ trait ItemTrait
      * Устанавливает содержит ли радиочастотные модули (wifi/gsm).
      *
      * @param bool $wifi_gsm Содержит ли радиочастотные модули (wifi/gsm)
-     *
      * @return self
      */
-    public function setWifiGsm(bool $wifi_gsm = false)
+    public function setWifiGsm($wifi_gsm = false)
     {
         $this->wifi_gsm = $wifi_gsm;
 
@@ -302,10 +289,9 @@ trait ItemTrait
      * Устанавливает ссылка на сайт интернет-магазина с описанием товара.
      *
      * @param string $url Ссылка на сайт интернет-магазина с описанием товара
-     *
      * @return self
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
 

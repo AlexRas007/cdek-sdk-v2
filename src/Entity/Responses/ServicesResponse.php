@@ -14,6 +14,7 @@ use AntistressStore\CdekSDK2\Traits\ServicesTrait;
 class ServicesResponse extends Source
 {
     use ServicesTrait;
+
     /**
      * Стоимость дополнительной услуги.
      *
@@ -25,7 +26,7 @@ class ServicesResponse extends Source
      * Get стоимость дополнительной услуги.
      *
      * @return float
-     */ 
+     */
     public function getSum()
     {
         return $this->sum;

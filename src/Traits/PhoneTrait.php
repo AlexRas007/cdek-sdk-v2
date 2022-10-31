@@ -16,6 +16,7 @@ namespace AntistressStore\CdekSDK2\Traits;
 trait PhoneTrait
 {
     use ExpressTrait;
+
     /**
      * Номер телефона.
      *
@@ -34,10 +35,9 @@ trait PhoneTrait
      * Устанавливает номер телефона.
      *
      * @param string $number Номер телефона
-     *
      * @return self
      */
-    public function setNumber(string $number)
+    public function setNumber($number)
     {
         $this->number = $number;
 
@@ -48,10 +48,9 @@ trait PhoneTrait
      * Устанавливает добавочный номер
      *
      * @param string $additional Добавочный номер
-     *
      * @return self
      */
-    public function setAdditional(string $additional)
+    public function setAdditional($additional)
     {
         $this->additional = $additional;
 

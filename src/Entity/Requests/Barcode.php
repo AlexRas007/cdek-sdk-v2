@@ -28,16 +28,13 @@ class Barcode extends Invoice
      */
     public $lang;
 
-   
-
     /**
      * Устанавливает параметр формат печати. Может принимать значения: A4, A5, A6. По умолчанию A4.
      *
      * @param string $format Формат печати. Может принимать значения: A4, A5, A6. По умолчанию A4
-     *
      * @return self
      */
-    public function setFormat(string $format = 'A4')
+    public function setFormat($format = 'A4')
     {
         $this->format = $format;
 
@@ -48,10 +45,9 @@ class Barcode extends Invoice
      * Устанавливает параметр язык печатной формы. Возможные языки в кодировке ISO - 639-3:.
      *
      * @param string $lang Язык печатной формы. Возможные языки в кодировке ISO - 639-3:
-     *
      * @return self
      */
-    public function setLang(string $lang)
+    public function setLang($lang)
     {
         $this->lang = $lang;
 

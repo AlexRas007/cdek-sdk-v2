@@ -49,9 +49,8 @@ trait LocationTrait
     /**
      * Код страны в формате  ISO_3166-1_alpha-2.
      *
-     * @example RU, DE, TR
-     *
      * @var string
+     * @example RU, DE, TR
      */
     protected $country_code;
 
@@ -65,9 +64,8 @@ trait LocationTrait
     /**
      * Код региона (справочник СДЭК).
      *
-     * @deprecated
-     *
      * @var int|null
+     * @deprecated
      */
     protected $region_code;
 
@@ -88,9 +86,8 @@ trait LocationTrait
     /**
      * Код КЛАДР.
      *
-     * @deprecated
-     *
      * @var string|null
+     * @deprecated
      */
     protected $kladr_code;
 
@@ -133,7 +130,7 @@ trait LocationTrait
     }
 
     /**
-     * @return string
+     * @return string[]|null
      */
     public function getCountryCodes()
     {
@@ -149,7 +146,7 @@ trait LocationTrait
     }
 
     /**
-     * @return int
+     * @return string|null
      */
     public function getPostalCode()
     {

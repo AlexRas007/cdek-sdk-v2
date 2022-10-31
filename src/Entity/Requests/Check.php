@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) Antistress.Store® 2021. All rights reserved.
  * See LICENSE.md for license details.
@@ -12,7 +13,7 @@ use AntistressStore\CdekSDK2\Traits\CommonTrait;
 
 /**
  * Class Check.
- * используется для получения информации о чеке по заказу или за выбранный день. 
+ * Используется для получения информации о чеке по заказу или за выбранный день.
  */
 class Check extends Source
 {
@@ -29,10 +30,9 @@ class Check extends Source
      * Set дата, за которую необходимо вернуть данные по чекам (дата в формате ISO 8601: YYYY-MM-DD).
      *
      * @param string $date дата, за которую необходимо вернуть данные по чекам (дата в формате ISO 8601: YYYY-MM-DD)
-     *
      * @return self
      */
-    public function setDate(string $date)
+    public function setDate($date)
     {
         $this->date = $date;
 

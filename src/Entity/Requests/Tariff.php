@@ -15,10 +15,11 @@ use AntistressStore\CdekSDK2\Traits\TariffTrait;
 class Tariff extends Source
 {
     use TariffTrait;
+
     /**
      * Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm).
      *
-     * @var \DateTimeInterface
+     * @var string
      */
     protected $date;
 
@@ -32,11 +33,10 @@ class Tariff extends Source
     /**
      * Установка даты и времени планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm).
      *
-     * @param \DateTimeInterface $date Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm)
-     *
+     * @param string $date Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm)
      * @return self
      */
-    public function setDate(\DateTimeInterface $date)
+    public function setDate($date)
     {
         $this->date = $date;
 
@@ -47,10 +47,9 @@ class Tariff extends Source
      * Установка тип заказа (1 - "интернет-магазин", 2 - "доставка").
      *
      * @param int $type Тип заказа (1 - "интернет-магазин", 2 - "доставка")
-     *
      * @return self
      */
-    public function setType(int $type)
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -61,10 +60,9 @@ class Tariff extends Source
      * Установка валюты, в которой необходимо произвести расчет
      *
      * @param int $currency Валюта, в которой необходимо произвести расчет
-     *
      * @return self
      */
-    public function setCurrency(int $currency)
+    public function setCurrency($currency)
     {
         $this->currency = $currency;
 
@@ -75,10 +73,9 @@ class Tariff extends Source
      * Установка код тарифа.
      *
      * @param int $tariff_code Код тарифа
-     *
      * @return self
      */
-    public function setTariffCode(int $tariff_code)
+    public function setTariffCode($tariff_code)
     {
         $this->tariff_code = $tariff_code;
 
@@ -89,7 +86,6 @@ class Tariff extends Source
      * Установка адреса отправления.
      *
      * @param Location $from_location Адрес отправления
-     *
      * @return self
      */
     public function setFromLocation(Location $from_location)
@@ -103,7 +99,6 @@ class Tariff extends Source
      * Установка адреса получения.
      *
      * @param Location $to_location Адрес получения
-     *
      * @return self
      */
     public function setToLocation(Location $to_location)
@@ -116,8 +111,7 @@ class Tariff extends Source
     /**
      * Установка дополнительных услуг.
      *
-     * @param Services[] $services Дополнительные услуги
-     *
+     * @param Services $services Дополнительные услуги
      * @return self
      */
     public function setServices(Services $services)
@@ -131,11 +125,10 @@ class Tariff extends Source
      * Экспресс-метод. Устанавливает города отправителя и получателя.
      *
      * @param int $from код города отправителя
-     * @param int $to   код города получателя
-     *
+     * @param int $to код города получателя
      * @return self
      */
-    public function setCityCodes(int $from, int $to)
+    public function setCityCodes($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($from)
             : $this->from_location->setCode($from);
@@ -149,7 +142,6 @@ class Tariff extends Source
      * Экспресс-метод. Добавляет дополнительные услуги одним методом через массив.
      *
      * @param array $services Дополнительные услуги
-     *
      * @return self
      */
     public function addServices(array $services)
@@ -159,11 +151,12 @@ class Tariff extends Source
         foreach ($services as $key => $value) {
             $service_name = (!empty($key)) ? $key : $value;
             if (!empty($key) && array_key_exists($key, $services_pattern)) {
-                $services_array[] = (new Services())->setCode($key)->setParameter($value);
+                $services_array[] = (new Services())->setCode($key)
+                    ->setParameter($value);
             } elseif (empty($key) && array_key_exists($value, $services_pattern)) {
                 $services_array[] = (new Services())->setCode($value);
             } else {
-                throw new \InvalidArgumentException('Передан не допустимый код тарифа:'.$service_name, 1);
+                throw new \InvalidArgumentException('Передан не допустимый код тарифа: ' . $service_name, 1);
             }
         }
         $this->services = $services_array;
@@ -174,8 +167,7 @@ class Tariff extends Source
     /**
      * Установка список информации по местам (упаковкам).
      *
-     * @param Package[] $packages Список информации по местам (упаковкам)
-     *
+     * @param Package $packages Список информации по местам (упаковкам)
      * @return self
      */
     public function setPackages(Package $packages)
