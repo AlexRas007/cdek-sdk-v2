@@ -50,7 +50,7 @@ class Tariff extends Source
      *
      * @return self
      */
-    public function setType(int $type)
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -64,7 +64,7 @@ class Tariff extends Source
      *
      * @return self
      */
-    public function setCurrency(int $currency)
+    public function setCurrency($currency)
     {
         $this->currency = $currency;
 
@@ -78,7 +78,7 @@ class Tariff extends Source
      *
      * @return self
      */
-    public function setTariffCode(int $tariff_code)
+    public function setTariffCode($tariff_code)
     {
         $this->tariff_code = $tariff_code;
 
@@ -113,13 +113,13 @@ class Tariff extends Source
         return $this;
     }
 
-    /**
-     * Установка дополнительных услуг.
-     *
-     * @param Services[] $services Дополнительные услуги
-     *
-     * @return self
-     */
+	/**
+	 * Установка дополнительных услуг.
+	 *
+	 * @param Services $services Дополнительные услуги
+	 *
+	 * @return self
+	 */
     public function setServices(Services $services)
     {
         $this->services = $services;
@@ -127,15 +127,15 @@ class Tariff extends Source
         return $this;
     }
 
-    /**
-     * Экспресс-метод. Устанавливает города отправителя и получателя.
-     *
-     * @param int $from код города отправителя
-     * @param int $to   код города получателя
-     *
-     * @return self
-     */
-    public function setCityCodes(int $from, int $to)
+	/**
+	 * Экспресс-метод. Устанавливает города отправителя и получателя.
+	 *
+	 * @param int $from код города отправителя
+	 * @param int $to код города получателя
+	 *
+	 * @return self
+	 */
+	public function setCityCodes($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($from)
             : $this->from_location->setCode($from);
@@ -172,13 +172,13 @@ class Tariff extends Source
     }
 
     /**
-     * Установка список информации по местам (упаковкам).
-     *
-     * @param Package[] $packages Список информации по местам (упаковкам)
-     *
-     * @return self
-     */
-    public function setPackages(Package $packages)
+	 * Установка список информации по местам (упаковкам).
+	 *
+	 * @param Package $packages Список информации по местам (упаковкам)
+	 *
+	 * @return self
+	 */
+	public function setPackages(Package $packages)
     {
         $this->packages[] = $packages;
 

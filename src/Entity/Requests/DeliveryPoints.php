@@ -10,7 +10,8 @@
 namespace AntistressStore\CdekSDK2\Entity\Requests;
 
 use AntistressStore\CdekSDK2\Constants;
-use AntistressStore\CdekSDK2\Traits\{DeliveryPointsTrait, LocationTrait};
+use AntistressStore\CdekSDK2\Traits\DeliveryPointsTrait;
+use AntistressStore\CdekSDK2\Traits\LocationTrait;
 
 /**
  * Список действующих офисов СДЭК.
@@ -20,13 +21,13 @@ class DeliveryPoints extends Location
     use LocationTrait;
     use DeliveryPointsTrait;
 
-    public const TYPE_PVZ = 'PVZ';
-    public const TYPE_ALL = 'ALL';
-    public const TYPE_POSTOMAT = 'POSTOMAT';
+    const TYPE_PVZ = 'PVZ';
+    const TYPE_ALL = 'ALL';
+    const TYPE_POSTOMAT = 'POSTOMAT';
 
-    public const LANGUAGE_RUSSIAN = 'rus';
-    public const LANGUAGE_ENGLISH = 'eng';
-    public const LANGUAGE_CHINESE = 'zho';
+    const LANGUAGE_RUSSIAN = 'rus';
+    const LANGUAGE_ENGLISH = 'eng';
+    const LANGUAGE_CHINESE = 'zho';
 
     /**
      * Код Города.
@@ -152,14 +153,14 @@ class DeliveryPoints extends Location
      */
     public function getCount()
     {
-        return count($this->items);
+        return property_exists($this, 'items') ? count($this->items) : 0;
     }
 
     /**
      * Get код ПВЗ.
      *
-     * @return string|null
-     */
+     * @return int|null
+	 */
     public function getCode()
     {
         return $this->code;

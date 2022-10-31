@@ -22,9 +22,9 @@
     }
   ],
   "require": {
-    "php": ">=7.2.5",
+    "php": "^5.6",
     "ext-json": "*",
-    "guzzlehttp/guzzle": ">=7.3"
+    "guzzlehttp/guzzle": "^6.5.8"
   },
   "config": {
     "sort-packages": true
@@ -39,6 +39,7 @@
     "docs": "https://github.com/AntistressStore/cdek-sdk-v2/blob/master/README.md"
   },
   "require-dev": {
+    "roave/security-advisories": "dev-latest",
     "php-parallel-lint/php-parallel-lint": "^1.3"
   }
 }

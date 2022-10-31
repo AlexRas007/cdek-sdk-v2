@@ -2,7 +2,8 @@
 
 namespace AntistressStore\CdekSDK2\Entity\Responses;
 
-use AntistressStore\CdekSDK2\Traits\{AgreementTrait, CommonTrait};
+use AntistressStore\CdekSDK2\Traits\AgreementTrait;
+use AntistressStore\CdekSDK2\Traits\CommonTrait;
 
 /**
  * Договоренности о доставке.
@@ -15,14 +16,14 @@ class AgreementResponse extends Source
     /**
      * Статусы.
      *
-     * @var StatusResponse[]
+     * @var StatusesResponse[]
      */
     protected $statuses;
 
     /**
      * Get статусы.
      *
-     * @return StatusResponse[]
+     * @return StatusesResponse[]
      */
     public function getStatuses()
     {

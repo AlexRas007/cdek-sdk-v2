@@ -133,8 +133,8 @@ trait LocationTrait
     }
 
     /**
-     * @return string
-     */
+     * @return string[]|null
+	 */
     public function getCountryCodes()
     {
         return $this->country_codes;
@@ -149,8 +149,8 @@ trait LocationTrait
     }
 
     /**
-     * @return int
-     */
+     * @return string|null
+	 */
     public function getPostalCode()
     {
         return $this->postal_code;

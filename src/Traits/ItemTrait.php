@@ -118,7 +118,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -132,7 +132,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setWareKey(string $ware_key)
+    public function setWareKey($ware_key)
     {
         $this->ware_key = $ware_key;
 
@@ -146,7 +146,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setMarking(string $marking)
+    public function setMarking($marking)
     {
         $this->marking = $marking;
 
@@ -179,7 +179,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setCost(float $cost)
+    public function setCost($cost)
     {
         $this->cost = $cost;
 
@@ -193,7 +193,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setWeight(int $weight)
+    public function setWeight($weight)
     {
         $this->weight = $weight;
 
@@ -207,7 +207,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setWeightGross(int $weight_gross)
+    public function setWeightGross($weight_gross)
     {
         $this->weight_gross = $weight_gross;
 
@@ -221,7 +221,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setAmount(int $amount)
+    public function setAmount($amount)
     {
         $this->amount = $amount;
 
@@ -235,7 +235,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setName_i18n(string $name_i18n)
+    public function setName_i18n($name_i18n)
     {
         $this->name_i18n = $name_i18n;
 
@@ -249,7 +249,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setBrand(string $brand)
+    public function setBrand($brand)
     {
         $this->brand = $brand;
 
@@ -263,7 +263,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setCountryCode(string $country_code)
+    public function setCountryCode($country_code)
     {
         $this->country_code = $country_code;
 
@@ -277,7 +277,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setMaterial(int $material)
+    public function setMaterial($material)
     {
         $this->material = $material;
 
@@ -291,7 +291,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setWifiGsm(bool $wifi_gsm = false)
+    public function setWifiGsm($wifi_gsm = false)
     {
         $this->wifi_gsm = $wifi_gsm;
 
@@ -305,7 +305,7 @@ trait ItemTrait
      *
      * @return self
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
 

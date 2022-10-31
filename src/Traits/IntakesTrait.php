@@ -87,7 +87,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setIntakeDate(string $intake_date)
+    public function setIntakeDate($intake_date)
     {
         $this->intake_date = $intake_date;
 
@@ -111,7 +111,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setIntakeTimeFrom(string $intake_time_from)
+    public function setIntakeTimeFrom($intake_time_from)
     {
         $this->intake_time_from = $intake_time_from;
 
@@ -135,7 +135,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setIntakeTimeTo(string $intake_time_to)
+    public function setIntakeTimeTo($intake_time_to)
     {
         $this->intake_time_to = $intake_time_to;
 
@@ -159,7 +159,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setLunchTimeFrom(string $lunch_time_from)
+    public function setLunchTimeFrom($lunch_time_from)
     {
         $this->lunch_time_from = $lunch_time_from;
 
@@ -183,7 +183,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setLunchTimeTo(string $lunch_time_to)
+    public function setLunchTimeTo($lunch_time_to)
     {
         $this->lunch_time_to = $lunch_time_to;
 
@@ -207,7 +207,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -231,7 +231,7 @@ trait IntakesTrait
      *
      * @return self
      */
-    public function setNeedCall(bool $need_call)
+    public function setNeedCall($need_call)
     {
         $this->need_call = $need_call;
 
@@ -241,8 +241,8 @@ trait IntakesTrait
     /**
      * Получить параметр - адрес отправителя (забора).
      *
-     * @return LocationResponse
-     */
+     * @return Location
+	 */
     public function getFromLocation()
     {
         return $this->from_location;

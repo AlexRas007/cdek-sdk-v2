@@ -9,6 +9,8 @@
 
 namespace AntistressStore\CdekSDK2\Traits;
 
+use AntistressStore\CdekSDK2\Entity\Requests\Contact;
+
 trait CommonTrait
 {
     /**
@@ -60,7 +62,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public function setUuid(string $uuid)
+    public function setUuid($uuid)
     {
         $this->uuid = $uuid;
 
@@ -74,7 +76,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public function setOrderUuid(string $order_uuid)
+    public function setOrderUuid($order_uuid)
     {
         $this->order_uuid = $order_uuid;
 
@@ -88,7 +90,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public function setCdekNumber(int $cdek_number)
+    public function setCdekNumber($cdek_number)
     {
         $this->cdek_number = $cdek_number;
 
@@ -100,7 +102,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public static function withOrderUuid(string $order_uuid)
+    public static function withOrderUuid($order_uuid)
     {
         $instance = new self();
 
@@ -114,7 +116,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public static function withCdekNumber(string $cdek_number)
+    public static function withCdekNumber($cdek_number)
     {
         $instance = new self();
 
@@ -190,7 +192,7 @@ trait CommonTrait
      *
      * @return self
      */
-    public function setComment(string $comment)
+    public function setComment($comment)
     {
         $this->comment = $comment;
 

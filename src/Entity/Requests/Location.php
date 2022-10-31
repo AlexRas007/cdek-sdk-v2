@@ -351,7 +351,7 @@ class Location extends Source
      *
      * @param string $fias_region_guid Уникальный идентификатор ФИАС региона населенного пункта
      */
-    public function setFiasRegionGuid(string $fias_region_guid)
+    public function setFiasRegionGuid($fias_region_guid)
     {
         $this->fias_region_guid = $fias_region_guid;
 
@@ -363,7 +363,7 @@ class Location extends Source
      *
      * @param string $address_full Полный адрес с указанием страны, региона, города, и т.д.
      */
-    public function setAddressFull(string $address_full)
+    public function setAddressFull($address_full)
     {
         $this->address_full = $address_full;
 

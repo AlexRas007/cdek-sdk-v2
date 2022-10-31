@@ -73,7 +73,7 @@ trait AgreementTrait
      *
      * @return self
      */
-    public function setTimeFrom(string $time_from)
+    public function setTimeFrom($time_from)
     {
         $this->time_from = $time_from;
 
@@ -87,7 +87,7 @@ trait AgreementTrait
      *
      * @return self
      */
-    public function setTimeTo(string $time_to)
+    public function setTimeTo($time_to)
     {
         $this->time_to = $time_to;
 

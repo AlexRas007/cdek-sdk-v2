@@ -33,14 +33,14 @@ trait MoneyTrait
      */
     public $vat_rate;
 
-    /**
-     * Устанавливает сумма в валюте.
-     *
-     * @param float $value Сумма в валюте
-     *
-     * @return self
-     */
-    public function setValue(float $value)
+	/**
+	 * Устанавливает сумма в валюте.
+	 *
+	 * @param float $value Сумма в валюте
+	 *
+	 * @return self
+	 */
+    public function setValue($value)
     {
         $this->value = $value;
 

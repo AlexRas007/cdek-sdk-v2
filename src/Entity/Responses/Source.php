@@ -13,12 +13,12 @@ use AntistressStore\CdekSDK2\Constants;
 
 class Source
 {
-    /**
-     * Формирует объект класса из ответа.
-     *
-     * @return self
-     */
-    public function __construct(?array $properties = null)
+	/**
+	 * Формирует объект класса из ответа.
+	 *
+	 * @param array|null $properties
+	 */
+    public function __construct($properties = null)
     {
         if ($properties != null) {
             if (isset($properties['entity'])) {
@@ -30,14 +30,16 @@ class Source
                 if ( ! property_exists($this, $key)) {
                     continue;
                 }
-                if (isset(Constants::SDK_CLASSES[$key])) {
+                if (array_key_exists($key, Constants::SDK_CLASSES)) {
                     $class_name = '\\AntistressStore\\CdekSDK2\\Entity\\Responses\\'
                         .Constants::SDK_CLASSES[$key].'Response';
+					/** @var Source $class_name */
                     $this->{$key} = $class_name::create($value);
-                } elseif (isset(Constants::SDK_ARRAY_RESPONSE_CLASSES[$key])) {
+                } elseif (array_key_exists($key, Constants::SDK_ARRAY_RESPONSE_CLASSES)) {
                     foreach ($value as $v) {
                         $class_name = '\\AntistressStore\\CdekSDK2\\Entity\\Responses\\'.
                             Constants::SDK_ARRAY_RESPONSE_CLASSES[$key].'Response';
+						/** @var Source $class_name */
                         $this->{$key}[] = $class_name::create($v);
                     }
                 } else {

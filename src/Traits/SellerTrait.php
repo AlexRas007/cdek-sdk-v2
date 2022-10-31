@@ -55,7 +55,7 @@ trait SellerTrait
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -69,7 +69,7 @@ trait SellerTrait
      *
      * @return self
      */
-    public function setInn(int $inn)
+    public function setInn($inn)
     {
         $this->inn = $inn;
 
@@ -83,7 +83,7 @@ trait SellerTrait
      *
      * @return self
      */
-    public function setPhone(string $phone)
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 
@@ -97,7 +97,7 @@ trait SellerTrait
      *
      * @return self
      */
-    public function setOwnershipForm(int $ownership_form)
+    public function setOwnershipForm($ownership_form)
     {
         $this->ownership_form = $ownership_form;
 
@@ -111,7 +111,7 @@ trait SellerTrait
      *
      * @return self
      */
-    public function setAddress(string $address)
+    public function setAddress($address)
     {
         $this->address = $address;
 

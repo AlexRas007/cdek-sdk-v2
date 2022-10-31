@@ -32,21 +32,21 @@ trait ServicesTrait
      *
      * @return self
      */
-    public function setCode(string $code)
+    public function setCode($code)
     {
         $this->code = $code;
 
         return $this;
     }
 
-    /**
-     * Устанавливает параметр дополнительной услуги.
-     *
-     * @param float $parameter Параметр дополнительной услуги
-     *
-     * @return self
-     */
-    public function setParameter(float $parameter)
+	/**
+	 * Устанавливает параметр дополнительной услуги.
+	 *
+	 * @param float $parameter Параметр дополнительной услуги
+	 *
+	 * @return self
+	 */
+    public function setParameter($parameter)
     {
         $this->parameter = $parameter;
 

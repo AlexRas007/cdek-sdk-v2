@@ -137,8 +137,8 @@ class DeliveryPointsResponse extends Source
     /**
      * Получить параметр - адрес ПВЗ.
      *
-     * @return LocationResponse
-     */
+     * @return array
+	 */
     public function getLocation()
     {
         return $this->location;

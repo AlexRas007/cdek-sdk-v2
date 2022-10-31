@@ -9,7 +9,8 @@
 
 namespace AntistressStore\CdekSDK2\Entity\Requests;
 
-use AntistressStore\CdekSDK2\Traits\{AgreementTrait, CommonTrait};
+use AntistressStore\CdekSDK2\Traits\AgreementTrait;
+use AntistressStore\CdekSDK2\Traits\CommonTrait;
 
 /**
  * Договоренности о доставке.

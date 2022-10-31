@@ -37,7 +37,7 @@ trait PhoneTrait
      *
      * @return self
      */
-    public function setNumber(string $number)
+    public function setNumber($number)
     {
         $this->number = $number;
 
@@ -51,7 +51,7 @@ trait PhoneTrait
      *
      * @return self
      */
-    public function setAdditional(string $additional)
+    public function setAdditional($additional)
     {
         $this->additional = $additional;
 

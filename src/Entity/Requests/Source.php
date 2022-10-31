@@ -21,7 +21,7 @@ class Source implements JsonSerializable
      */
     public function prepareRequest()
     {
-        $entity_vars = $this->pattern ?? \get_object_vars($this);
+        $entity_vars = isset($this->pattern) ? $this->pattern : \get_object_vars($this);
 
         $dynamic = [];
         
@@ -39,8 +39,6 @@ class Source implements JsonSerializable
                     $array_from_object_null_filtered = \array_filter($array_from_object);
                     if (!empty($array_from_object_null_filtered)) {
                         $dynamic[$key][] = $array_from_object_null_filtered;
-                    } else {
-                        continue;
                     }
                 }
             } else {
@@ -54,6 +52,10 @@ class Source implements JsonSerializable
         return $dynamic;
     }
 
+	/**
+	 * @return array
+	 * @noinspection PhpLanguageLevelInspection
+	 */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {

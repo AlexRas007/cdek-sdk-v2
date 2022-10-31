@@ -15,7 +15,6 @@ namespace AntistressStore\CdekSDK2\Traits;
 trait ThresholdTrait
 {
     use MoneyTrait;
-    use ExpressTrait;
     /**
      * Порог стоимости товара (действует по условию меньше или равно) в целых единицах валюты.
      *
@@ -37,21 +36,21 @@ trait ThresholdTrait
      *
      * @return self
      */
-    public function setThreshold(int $threshold)
+    public function setThreshold($threshold)
     {
         $this->threshold = $threshold;
 
         return $this;
     }
 
-    /**
-     * Устанавливает доп. сбор за доставку товаров, общая стоимость которых попадает в интервал.
-     *
-     * @param float $sum Доп. сбор за доставку товаров, общая стоимость которых попадает в интервал
-     *
-     * @return self
-     */
-    public function setSum(float $sum)
+	/**
+	 * Устанавливает доп. сбор за доставку товаров, общая стоимость которых попадает в интервал.
+	 *
+	 * @param float $sum Доп. сбор за доставку товаров, общая стоимость которых попадает в интервал
+	 *
+	 * @return self
+	 */
+    public function setSum($sum)
     {
         $this->sum = $sum;
 

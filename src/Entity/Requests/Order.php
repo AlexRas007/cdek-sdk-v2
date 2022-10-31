@@ -9,7 +9,9 @@
 
 namespace AntistressStore\CdekSDK2\Entity\Requests;
 
-use AntistressStore\CdekSDK2\Traits\{CommonTrait, OrderTrait, TariffTrait};
+use AntistressStore\CdekSDK2\Traits\CommonTrait;
+use AntistressStore\CdekSDK2\Traits\OrderTrait;
+use AntistressStore\CdekSDK2\Traits\TariffTrait;
 
 class Order extends Source
 {
@@ -47,7 +49,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setNumber(string $number)
+    public function setNumber($number)
     {
         $this->number = $number;
 
@@ -62,7 +64,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setShipmentPoint(string $shipment_point)
+    public function setShipmentPoint($shipment_point)
     {
         $this->shipment_point = $shipment_point;
 
@@ -77,7 +79,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setDeliveryPoint(string $delivery_point)
+    public function setDeliveryPoint($delivery_point)
     {
         $this->delivery_point = $delivery_point;
 
@@ -91,7 +93,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setItemsСostСurrency(string $items_cost_currency)
+    public function setItemsCostCurrency($items_cost_currency)
     {
         $this->items_cost_currency = $items_cost_currency;
 
@@ -105,7 +107,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setRecipientCurrency(string $recipient_currency)
+    public function setRecipientCurrency($recipient_currency)
     {
         $this->recipient_currency = $recipient_currency;
 
@@ -118,7 +120,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setShipmentAddress(string $address)
+    public function setShipmentAddress($address)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withAddress($address)
             : $this->from_location->setAddress($address);
@@ -132,7 +134,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setShipmentCityCode(int $code)
+    public function setShipmentCityCode($code)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($code)
             : $this->from_location->setCode($code);
@@ -147,7 +149,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setRecipientAddress(string $address)
+    public function setRecipientAddress($address)
     {
         $this->to_location = (is_null($this->to_location)) ? Location::withAddress($address)
             : $this->to_location->setAddress($address);
@@ -162,7 +164,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setRecipientCityCode(int $code)
+    public function setRecipientCityCode($code)
     {
         $this->to_location = (is_null($this->to_location)) ? Location::withCode($code)
             : $this->to_location->setCode($code);
@@ -170,14 +172,13 @@ class Order extends Source
         return $this;
     }
 
-    /**
-     * Экспресс метод. Устанавливает код города отправителя.
-     *
-     * @param int $address адрес получателя
-     *
-     * @return self
-     */
-    public function setSenderCityCode(int $code)
+	/**
+	 * Экспресс метод. Устанавливает код города отправителя.
+	 *
+	 * @param $code
+	 * @return self
+	 */
+    public function setSenderCityCode($code)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($code)
             : $this->from_location->setCode($code);
@@ -193,7 +194,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setDateInvoice(string $date_invoice)
+    public function setDateInvoice($date_invoice)
     {
         $this->date_invoice = $date_invoice;
 
@@ -208,7 +209,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setShipperName(string $shipper_name)
+    public function setShipperName($shipper_name)
     {
         $this->shipper_name = $shipper_name;
 
@@ -223,7 +224,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setShipperAddress(string $shipper_address)
+    public function setShipperAddress($shipper_address)
     {
         $this->shipper_address = $shipper_address;
 
@@ -239,7 +240,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setDeliveryRecipientCost(float $value = 0.0, $vat_sum = null, $vat_rate = null)
+    public function setDeliveryRecipientCost($value = 0.0, $vat_sum = null, $vat_rate = null)
     {
         if (is_float($value)) {
             $args = \get_defined_vars();
@@ -318,7 +319,7 @@ class Order extends Source
      *
      * @return self
      */
-    public function setPrint(string $print)
+    public function setPrint($print)
     {
         $this->print = $print;
 

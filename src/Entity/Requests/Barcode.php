@@ -37,7 +37,7 @@ class Barcode extends Invoice
      *
      * @return self
      */
-    public function setFormat(string $format = 'A4')
+    public function setFormat($format = 'A4')
     {
         $this->format = $format;
 
@@ -51,7 +51,7 @@ class Barcode extends Invoice
      *
      * @return self
      */
-    public function setLang(string $lang)
+    public function setLang($lang)
     {
         $this->lang = $lang;
 

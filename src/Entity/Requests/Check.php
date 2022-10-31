@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) Antistress.Store® 2021. All rights reserved.
  * See LICENSE.md for license details.
@@ -32,7 +33,7 @@ class Check extends Source
      *
      * @return self
      */
-    public function setDate(string $date)
+    public function setDate($date)
     {
         $this->date = $date;
 

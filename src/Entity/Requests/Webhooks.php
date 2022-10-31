@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) Antistress.Store® 2021. All rights reserved.
  * See LICENSE.md for license details.
@@ -31,7 +32,7 @@ class Webhooks extends Source
      *
      * @return self
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
 
@@ -48,7 +49,7 @@ class Webhooks extends Source
      *
      * @return self
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         $this->type = $type;
 

@@ -69,7 +69,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setNumber(string $number)
+    public function setNumber($number)
     {
         $this->number = $number;
 
@@ -133,7 +133,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setWeight(int $weight)
+    public function setWeight($weight)
     {
         $this->weight = $weight;
 
@@ -157,7 +157,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setLength(int $length)
+    public function setLength($length)
     {
         $this->length = $length;
 
@@ -181,7 +181,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setWidth(int $width)
+    public function setWidth($width)
     {
         $this->width = $width;
 
@@ -205,7 +205,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setHeight(int $height)
+    public function setHeight($height)
     {
         $this->height = $height;
 
@@ -229,7 +229,7 @@ trait PackageTrait
      *
      * @return self
      */
-    public function setComment(string $comment)
+    public function setComment($comment)
     {
         $this->comment = $comment;
 

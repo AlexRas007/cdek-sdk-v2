@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) Antistress.Store® 2021. All rights reserved.
  * See LICENSE.md for license details.
@@ -41,7 +42,7 @@ class Invoice extends Source
      *
      * @return self
      */
-    public function setOrders(Order $orders)
+    public function setOrders($orders)
     {
         $this->orders = $orders;
 
@@ -55,7 +56,7 @@ class Invoice extends Source
      *
      * @return self
      */
-    public function setCopyCount(int $copy_count = 1)
+    public function setCopyCount($copy_count = 1)
     {
         $this->copy_count = $copy_count;
 
@@ -69,7 +70,7 @@ class Invoice extends Source
      *
      * @return self
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         $this->type = $type;
 

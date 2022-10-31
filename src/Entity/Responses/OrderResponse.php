@@ -9,7 +9,11 @@
 
 namespace AntistressStore\CdekSDK2\Entity\Responses;
 
-use AntistressStore\CdekSDK2\Traits\{CommonTrait, OrderTrait, TariffTrait};
+use AntistressStore\CdekSDK2\Entity\Requests\Package;
+use AntistressStore\CdekSDK2\Entity\Requests\Services;
+use AntistressStore\CdekSDK2\Traits\CommonTrait;
+use AntistressStore\CdekSDK2\Traits\OrderTrait;
+use AntistressStore\CdekSDK2\Traits\TariffTrait;
 
 /**
  * Class Orders.
@@ -65,7 +69,7 @@ class OrderResponse extends Source
     /**
      * Статусы.
      *
-     * @var StatusResponse[]
+     * @var StatusesResponse[]
      */
     protected $statuses;
 
@@ -83,7 +87,10 @@ class OrderResponse extends Source
      */
     protected $requests;
 
-    public function __construct(?array $properties = null)
+	/**
+	 * @param array|null $properties
+	 */
+    public function __construct($properties = null)
     {
         if (isset($properties['related_entities'])) {
             $this->related_entities = $properties['related_entities'];
@@ -114,8 +121,8 @@ class OrderResponse extends Source
     /**
      * Получить значение - тип заказа.
      *
-     * @return string
-     */
+     * @return int
+	 */
     public function getType()
     {
         return $this->type;
@@ -174,18 +181,18 @@ class OrderResponse extends Source
     /**
      * Получить значение - статусы.
      *
-     * @return StatusResponse[]
+     * @return StatusesResponse[]
      */
     public function getStatuses()
     {
         return $this->statuses;
     }
 
-    /**
-     * Получить значение - список информации по местам (упаковкам).
-     *
-     * @return PackageResponse[]
-     */
+	/**
+	 * Получить значение - список информации по местам (упаковкам).
+	 *
+	 * @return Package[]
+	 */
     public function getPackages()
     {
         return $this->packages;
@@ -215,8 +222,6 @@ class OrderResponse extends Source
             foreach ($this->related_entities as $key => $value) {
                 if (isset($value['type']) && $value['type'] == $type) {
                     $newest[] = $value;
-                } else {
-                    continue;
                 }
             }
         }
@@ -234,11 +239,11 @@ class OrderResponse extends Source
         return $this->requests;
     }
 
-    /**
-     * Get дополнительные услуги.
-     *
-     * @return ServicesResponse[]
-     */
+	/**
+	 * Get дополнительные услуги.
+	 *
+	 * @return Services[]
+	 */
     public function getServices()
     {
         return $this->services;
