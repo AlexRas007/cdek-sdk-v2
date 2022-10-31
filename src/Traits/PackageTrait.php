@@ -66,7 +66,6 @@ trait PackageTrait
      * Устанавливает номер упаковки.
      *
      * @param string $number Номер упаковки
-     *
      * @return self
      */
     public function setNumber($number)
@@ -80,7 +79,6 @@ trait PackageTrait
      * Устанавливает позиции товаров в упаковке.
      *
      * @param Item[] $items Массив Item Позиции товаров в упаковке
-     *
      * @return self
      */
     public function setItems($items)
@@ -89,7 +87,7 @@ trait PackageTrait
 
         return $this;
     }
-    
+
     /**
      * Возвращает позиции товаров в упаковке.
      *
@@ -98,7 +96,7 @@ trait PackageTrait
     public function getItems()
     {
         return $this->items;
-    }    
+    }
 
     /**
      * Получить значение - общий вес (в граммах).
@@ -114,7 +112,6 @@ trait PackageTrait
      * Экспресс-метод установки адреса.
      *
      * @param int $weight общий вес (в граммах)
-     *
      * @return self
      */
     public static function withWeight($weight)
@@ -130,7 +127,6 @@ trait PackageTrait
      * Установить значение - общий вес (в граммах).
      *
      * @param int $weight общий вес (в граммах)
-     *
      * @return self
      */
     public function setWeight($weight)
@@ -154,7 +150,6 @@ trait PackageTrait
      * Установить значение - габариты упаковки. Длина (в сантиметрах).
      *
      * @param int $length Габариты упаковки. Длина (в сантиметрах).
-     *
      * @return self
      */
     public function setLength($length)
@@ -178,7 +173,6 @@ trait PackageTrait
      * Установить значение - габариты упаковки. Ширина (в сантиметрах).
      *
      * @param int $width Габариты упаковки. Ширина (в сантиметрах).
-     *
      * @return self
      */
     public function setWidth($width)
@@ -202,7 +196,6 @@ trait PackageTrait
      * Установить значение - габариты упаковки. Высота (в сантиметрах).
      *
      * @param int $height Габариты упаковки. Высота (в сантиметрах).
-     *
      * @return self
      */
     public function setHeight($height)
@@ -226,7 +219,6 @@ trait PackageTrait
      * Установить значение - комментарий к упаковке.
      *
      * @param string $comment комментарий к упаковке
-     *
      * @return self
      */
     public function setComment($comment)

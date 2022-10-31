@@ -87,9 +87,9 @@ class OrderResponse extends Source
      */
     protected $requests;
 
-	/**
-	 * @param array|null $properties
-	 */
+    /**
+     * @param array|null $properties
+     */
     public function __construct($properties = null)
     {
         if (isset($properties['related_entities'])) {
@@ -122,7 +122,7 @@ class OrderResponse extends Source
      * Получить значение - тип заказа.
      *
      * @return int
-	 */
+     */
     public function getType()
     {
         return $this->type;
@@ -188,11 +188,11 @@ class OrderResponse extends Source
         return $this->statuses;
     }
 
-	/**
-	 * Получить значение - список информации по местам (упаковкам).
-	 *
-	 * @return Package[]
-	 */
+    /**
+     * Получить значение - список информации по местам (упаковкам).
+     *
+     * @return Package[]
+     */
     public function getPackages()
     {
         return $this->packages;
@@ -212,7 +212,6 @@ class OrderResponse extends Source
      * Получить последнюю (самую новую) связанную сущность.
      *
      * @param string $type
-     *
      * @return string
      */
     public function getLastRelated($type)
@@ -239,11 +238,11 @@ class OrderResponse extends Source
         return $this->requests;
     }
 
-	/**
-	 * Get дополнительные услуги.
-	 *
-	 * @return Services[]
-	 */
+    /**
+     * Get дополнительные услуги.
+     *
+     * @return Services[]
+     */
     public function getServices()
     {
         return $this->services;

@@ -12,6 +12,7 @@ namespace AntistressStore\CdekSDK2\Traits;
 trait MoneyTrait
 {
     use ExpressTrait;
+
     /**
      * Сумма в валюте.
      *
@@ -33,13 +34,12 @@ trait MoneyTrait
      */
     public $vat_rate;
 
-	/**
-	 * Устанавливает сумма в валюте.
-	 *
-	 * @param float $value Сумма в валюте
-	 *
-	 * @return self
-	 */
+    /**
+     * Устанавливает сумма в валюте.
+     *
+     * @param float $value Сумма в валюте
+     * @return self
+     */
     public function setValue($value)
     {
         $this->value = $value;
@@ -51,7 +51,6 @@ trait MoneyTrait
      * Устанавливает сумма НДС
      *
      * @param float|null $vat_sum Сумма НДС
-     *
      * @return self
      */
     public function setVatSum($vat_sum)
@@ -65,7 +64,6 @@ trait MoneyTrait
      * Устанавливает ставка НДС
      *
      * @param int|null $vat_rate Ставка НДС
-     *
      * @return self
      */
     public function setVatRate($vat_rate)

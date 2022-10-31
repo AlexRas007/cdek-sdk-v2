@@ -89,7 +89,6 @@ trait ContactTrait
      * Устанавливает название компании.
      *
      * @param string $company Название компании
-     *
      * @return self
      */
     public function setCompany($company)
@@ -103,7 +102,6 @@ trait ContactTrait
      * Устанавливает ФИО контактного лица.
      *
      * @param string $name ФИО контактного лица
-     *
      * @return self
      */
     public function setName($name)
@@ -117,7 +115,6 @@ trait ContactTrait
      * Устанавливает электронный адрес
      *
      * @param string $email Электронный адрес
-     *
      * @return self
      */
     public function setEmail($email)
@@ -130,9 +127,8 @@ trait ContactTrait
     /**
      * Устанавливает список телефонов.
      *
-     * @param string      $number     - Основной телефон
+     * @param string $number - Основной телефон
      * @param string|null $additional - Дополнительный телефон
-     *
      * @return self
      */
     public function setPhones($number, $additional = null)
@@ -147,7 +143,6 @@ trait ContactTrait
      * Устанавливает серия паспорта получателя(только для международных заказов).
      *
      * @param string $passport_series Серия паспорта получателя(только для международных заказов)
-     *
      * @return self
      */
     public function setPassportSeries($passport_series)
@@ -161,7 +156,6 @@ trait ContactTrait
      * Устанавливает номер паспорта получателя (только для международных заказов).
      *
      * @param string $passport_number Номер паспорта получателя (только для международных заказов)
-     *
      * @return self
      */
     public function setPassportNumber($passport_number)
@@ -175,7 +169,6 @@ trait ContactTrait
      * Устанавливает дата выдачи паспорта получателя (только для международных заказов).
      *
      * @param string $passport_date_of_issue Дата выдачи паспорта получателя (только для международных заказов)
-     *
      * @return self
      */
     public function setPassportDateOfIssue($passport_date_of_issue)
@@ -189,7 +182,6 @@ trait ContactTrait
      * Устанавливает орган выдачи паспорта получателя (только для международных заказов).
      *
      * @param string $passport_organization Орган выдачи паспорта получателя (только для международных заказов)
-     *
      * @return self
      */
     public function setPassportOrganization($passport_organization)
@@ -203,7 +195,6 @@ trait ContactTrait
      * Устанавливает дата рождения получателя (только для международных заказов).
      *
      * @param string $passport_date_of_birth Дата рождения получателя (только для международных заказов)
-     *
      * @return self
      */
     public function setPassportDateOfBirth($passport_date_of_birth)
@@ -217,7 +208,6 @@ trait ContactTrait
      * Устанавливает иНН получателя (только для международных заказов).
      *
      * @param string $tin ИНН получателя (только для международных заказов)
-     *
      * @return self
      */
     public function setTin($tin)

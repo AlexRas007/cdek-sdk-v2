@@ -29,7 +29,6 @@ class Webhooks extends Source
      * Установить параметр - uRL клиента для получения webhook.
      *
      * @param string $url URL клиента для получения webhook
-     *
      * @return self
      */
     public function setUrl($url)
@@ -42,11 +41,7 @@ class Webhooks extends Source
     /**
      * Установить параметр - тип события.
      *
-     * @param string $type
-     *                     Тип события:
-     *                     'ORDER_STATUS' - событие по статусам
-     *                     'PRINT_FORM' - готовность печатной формы
-     *
+     * @param string $type Тип события: 'ORDER_STATUS' - событие по статусам, 'PRINT_FORM' - готовность печатной формы
      * @return self
      */
     public function setType($type)

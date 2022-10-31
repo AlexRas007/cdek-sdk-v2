@@ -15,7 +15,7 @@ class PrintResponse extends EntityResponse
      * Получить параметр - Список заказов.
      *
      * @return OrderResponse[]
-	 */
+     */
     public function getOrderUuid()
     {
         $orders = [];
@@ -44,7 +44,7 @@ class PrintResponse extends EntityResponse
             return $this->entity['url'];
         }
 
-		return null;
+        return null;
     }
 
     /**
@@ -58,7 +58,7 @@ class PrintResponse extends EntityResponse
             return $this->entity['copy_count'];
         }
 
-		return null;
+        return null;
     }
 
     /**
@@ -72,7 +72,7 @@ class PrintResponse extends EntityResponse
             return $this->entity['lang'];
         }
 
-		return null;
+        return null;
     }
 
     /**
@@ -86,7 +86,7 @@ class PrintResponse extends EntityResponse
             return $this->entity['format'];
         }
 
-		return null;
+        return null;
     }
 
     /**
@@ -104,6 +104,6 @@ class PrintResponse extends EntityResponse
             return $statuses;
         }
 
-		return null;
+        return null;
     }
 }

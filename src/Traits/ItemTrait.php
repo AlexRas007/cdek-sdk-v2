@@ -115,7 +115,6 @@ trait ItemTrait
      * Устанавливает наименование товара.
      *
      * @param string $name Наименование товара
-     *
      * @return self
      */
     public function setName($name)
@@ -129,7 +128,6 @@ trait ItemTrait
      * Устанавливает идентификатор/артикул товара.
      *
      * @param string $ware_key Идентификатор/артикул товара
-     *
      * @return self
      */
     public function setWareKey($ware_key)
@@ -143,7 +141,6 @@ trait ItemTrait
      * Устанавливает маркировка товара/вложения.
      *
      * @param string $marking Маркировка товара/вложения
-     *
      * @return self
      */
     public function setMarking($marking)
@@ -156,10 +153,9 @@ trait ItemTrait
     /**
      * Устанавливает параметр оплата за товар при получении.
      *
-     * @param float      $value    Оплата за товар при получении
-     * @param float|null $vat_sum  Сумма НДС
-     * @param int|null   $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
-     *
+     * @param float $value Оплата за товар при получении
+     * @param float|null $vat_sum Сумма НДС
+     * @param int|null $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
      * @return self
      */
     public function setPayment($value, $vat_sum = null, $vat_rate = null)
@@ -176,7 +172,6 @@ trait ItemTrait
      * Устанавливает объявленную стоимость товара.
      *
      * @param float $cost Объявленная стоимость товара
-     *
      * @return self
      */
     public function setCost($cost)
@@ -190,7 +185,6 @@ trait ItemTrait
      * Устанавливает вес (за единицу товара, в граммах).
      *
      * @param int $weight Вес (за единицу товара, в граммах)
-     *
      * @return self
      */
     public function setWeight($weight)
@@ -204,7 +198,6 @@ trait ItemTrait
      * Устанавливает вес брутто (только для международных заказов).
      *
      * @param int $weight_gross Вес брутто (только для международных заказов)
-     *
      * @return self
      */
     public function setWeightGross($weight_gross)
@@ -218,7 +211,6 @@ trait ItemTrait
      * Устанавливает количество единиц товара.
      *
      * @param int $amount Количество единиц товара
-     *
      * @return self
      */
     public function setAmount($amount)
@@ -232,7 +224,6 @@ trait ItemTrait
      * Устанавливает наименование на иностранном языке.
      *
      * @param string $name_i18n Наименование на иностранном языке
-     *
      * @return self
      */
     public function setName_i18n($name_i18n)
@@ -246,7 +237,6 @@ trait ItemTrait
      * Устанавливает бренд на иностранном языке.
      *
      * @param string $brand Бренд на иностранном языке
-     *
      * @return self
      */
     public function setBrand($brand)
@@ -260,7 +250,6 @@ trait ItemTrait
      * Устанавливает код страны в формате ISO_3166-1_alpha-2.
      *
      * @param string $country_code Код страны в формате ISO_3166-1_alpha-2
-     *
      * @return self
      */
     public function setCountryCode($country_code)
@@ -274,7 +263,6 @@ trait ItemTrait
      * Устанавливает код материала.
      *
      * @param int $material Код материала
-     *
      * @return self
      */
     public function setMaterial($material)
@@ -288,7 +276,6 @@ trait ItemTrait
      * Устанавливает содержит ли радиочастотные модули (wifi/gsm).
      *
      * @param bool $wifi_gsm Содержит ли радиочастотные модули (wifi/gsm)
-     *
      * @return self
      */
     public function setWifiGsm($wifi_gsm = false)
@@ -302,7 +289,6 @@ trait ItemTrait
      * Устанавливает ссылка на сайт интернет-магазина с описанием товара.
      *
      * @param string $url Ссылка на сайт интернет-магазина с описанием товара
-     *
      * @return self
      */
     public function setUrl($url)

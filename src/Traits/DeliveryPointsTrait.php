@@ -88,7 +88,6 @@ trait DeliveryPointsTrait
      * Установка параметра - есть терминал оплаты.
      *
      * @param bool|null $have_cashless есть терминал оплаты
-     *
      * @return self
      */
     public function setHaveCashless($have_cashless)
@@ -112,7 +111,6 @@ trait DeliveryPointsTrait
      * Установка параметра - есть приём наличных.
      *
      * @param bool|null $have_cash есть приём наличных
-     *
      * @return self
      */
     public function setHaveCash($have_cash)
@@ -136,7 +134,6 @@ trait DeliveryPointsTrait
      * Установка параметра - разрешен наложенный платеж в ПВЗ.
      *
      * @param bool|null $allowed_cod разрешен наложенный платеж в ПВЗ
-     *
      * @return self
      */
     public function setAllowedCod($allowed_cod)
@@ -160,7 +157,6 @@ trait DeliveryPointsTrait
      * Установка параметра - есть ли примерочная.
      *
      * @param bool|null $is_dressing_room есть ли примерочная
-     *
      * @return self
      */
     public function setIsDressingRoom($is_dressing_room)
@@ -184,7 +180,6 @@ trait DeliveryPointsTrait
      * Установка параметра - является пунктом выдачи.
      *
      * @param bool|null $is_handout является пунктом выдачи
-     *
      * @return self
      */
     public function setIsHandout($is_handout)
@@ -208,7 +203,6 @@ trait DeliveryPointsTrait
      * Установка параметра - есть ли в офисе приём заказов.
      *
      * @param bool|null $is_reception есть ли в офисе приём заказов
-     *
      * @return self
      */
     public function setIsReception($is_reception)
@@ -232,7 +226,6 @@ trait DeliveryPointsTrait
      * Установка параметра - максимальный вес (в кг.), принимаемый в ПВЗ (<=WeightMax).
      *
      * @param int|null $weight_max Максимальный вес (в кг.), принимаемый в ПВЗ (<=WeightMax).
-     *
      * @return self
      */
     public function setWeightMax($weight_max)
@@ -256,7 +249,6 @@ trait DeliveryPointsTrait
      * Установка параметра - минимальный вес (в кг.), принимаемый в ПВЗ (> WeightMin).
      *
      * @param int|null $weight_min Минимальный вес (в кг.), принимаемый в ПВЗ (> WeightMin).
-     *
      * @return self
      */
     public function setWeightMin($weight_min)
@@ -280,7 +272,6 @@ trait DeliveryPointsTrait
      * Установка параметра - является ли ПВЗ только пунктом выдачи или также осуществляет приём грузов.
      *
      * @param bool|null $take_only является ли ПВЗ только пунктом выдачи или также осуществляет приём грузов
-     *
      * @return self
      */
     public function setTakeOnly($take_only)

@@ -10,6 +10,7 @@ use AntistressStore\CdekSDK2\Traits\DeliveryPointsTrait;
 class DeliveryPointsResponse extends Source
 {
     use DeliveryPointsTrait;
+
     /**
      * Название ПВЗ.
      *
@@ -138,7 +139,7 @@ class DeliveryPointsResponse extends Source
      * Получить параметр - адрес ПВЗ.
      *
      * @return LocationResponse
-	 */
+     */
     public function getLocation()
     {
         return $this->location;

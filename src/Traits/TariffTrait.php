@@ -62,7 +62,6 @@ trait TariffTrait
      * Установка даты и времени планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm).
      *
      * @param string $date Дата и время планируемой передачи заказа (дата и время в формате ISO 8601: YYYY-MM-DDThh:mm:ss±hhmm)
-     *
      * @return self
      */
     public function setDate($date)
@@ -76,7 +75,6 @@ trait TariffTrait
      * Установка тип заказа (1 - "интернет-магазин", 2 - "доставка").
      *
      * @param int $type Тип заказа (1 - "интернет-магазин", 2 - "доставка")
-     *
      * @return self
      */
     public function setType($type)
@@ -90,7 +88,6 @@ trait TariffTrait
      * Установка валюты, в которой необходимо произвести расчет
      *
      * @param int $currency Валюта, в которой необходимо произвести расчет
-     *
      * @return self
      */
     public function setCurrency($currency)
@@ -104,7 +101,6 @@ trait TariffTrait
      * Установка код тарифа.
      *
      * @param int $tariff_code Код тарифа
-     *
      * @return self
      */
     public function setTariffCode($tariff_code)
@@ -118,7 +114,6 @@ trait TariffTrait
      * Установка адреса отправления.
      *
      * @param Location $from_location Адрес отправления
-     *
      * @return self
      */
     public function setFromLocation(Location $from_location)
@@ -132,7 +127,6 @@ trait TariffTrait
      * Установка адреса получения.
      *
      * @param Location $to_location Адрес получения
-     *
      * @return self
      */
     public function setToLocation(Location $to_location)
@@ -142,13 +136,12 @@ trait TariffTrait
         return $this;
     }
 
-	/**
-	 * Установка дополнительных услуг.
-	 *
-	 * @param Services $services Дополнительные услуги
-	 *
-	 * @return self
-	 */
+    /**
+     * Установка дополнительных услуг.
+     *
+     * @param Services $services Дополнительные услуги
+     * @return self
+     */
     public function setServices(Services $services)
     {
         $this->services = $services;
@@ -156,15 +149,14 @@ trait TariffTrait
         return $this;
     }
 
-	/**
-	 * Экспресс-метод. Устанавливает города отправителя и получателя.
-	 *
-	 * @param int $from код города отправителя
-	 * @param int $to код города получателя
-	 *
-	 * @return self
-	 */
-	public function setCityCodes($from, $to)
+    /**
+     * Экспресс-метод. Устанавливает города отправителя и получателя.
+     *
+     * @param int $from код города отправителя
+     * @param int $to код города получателя
+     * @return self
+     */
+    public function setCityCodes($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($from)
             : $this->from_location->setCode($from);
@@ -175,14 +167,13 @@ trait TariffTrait
     }
 
     /**
-	 * Экспресс-метод. Устанавливает индексы городов отправителя и получателя.
-	 *
-	 * @param int $from индекс города отправителя
-	 * @param int $to индекс города получателя
-	 *
-	 * @return self
-	 */
-	public function setPostalCodes($from, $to)
+     * Экспресс-метод. Устанавливает индексы городов отправителя и получателя.
+     *
+     * @param int $from индекс города отправителя
+     * @param int $to индекс города получателя
+     * @return self
+     */
+    public function setPostalCodes($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withPostalCode($from)
             : $this->from_location->setPostalCode($from);
@@ -193,14 +184,13 @@ trait TariffTrait
     }
 
     /**
-	 * Экспресс-метод. Устанавливает адреса городов отправителя и получателя.
-	 *
-	 * @param string $from адрес города отправителя
-	 * @param string $to адрес города получателя
-	 *
-	 * @return self
-	 */
-	public function setAddresses($from, $to)
+     * Экспресс-метод. Устанавливает адреса городов отправителя и получателя.
+     *
+     * @param string $from адрес города отправителя
+     * @param string $to адрес города получателя
+     * @return self
+     */
+    public function setAddresses($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withAddress($from)
             : $this->from_location->setAddress($from);
@@ -211,14 +201,13 @@ trait TariffTrait
     }
 
     /**
-	 * Экспресс-метод. Устанавливает адреса городов отправителя и получателя.
-	 *
-	 * @param string $from адрес города отправителя
-	 * @param string $to адрес города получателя
-	 *
-	 * @return self
-	 */
-	public function setCities($from, $to)
+     * Экспресс-метод. Устанавливает адреса городов отправителя и получателя.
+     *
+     * @param string $from адрес города отправителя
+     * @param string $to адрес города получателя
+     * @return self
+     */
+    public function setCities($from, $to)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCities($from)
             : $this->from_location->setCity($from);
@@ -232,7 +221,6 @@ trait TariffTrait
      * Экспресс-метод. Создает место с одним обязательным параметром - общий вес (в граммах).
      *
      * @param int $weight Общий вес (в граммах)
-     *
      * @return self
      */
     public function setPackageWeight($weight)
@@ -246,7 +234,6 @@ trait TariffTrait
      * Экспресс-метод. Добавляет дополнительные услуги одним методом через массив.
      *
      * @param array $services Дополнительные услуги
-     *
      * @return self
      */
     public function addServices($services)
@@ -256,7 +243,8 @@ trait TariffTrait
         foreach ($services as $key => $value) {
             $service_name = (!empty($key)) ? $key : $value;
             if (!empty($key) && array_key_exists($key, $services_pattern)) {
-                $services_array[] = (new Services())->setCode($key)->setParameter($value);
+                $services_array[] = (new Services())->setCode($key)
+                    ->setParameter($value);
             } elseif (empty($key) && array_key_exists($value, $services_pattern)) {
                 $services_array[] = (new Services())->setCode($value);
             } else {
@@ -269,13 +257,12 @@ trait TariffTrait
     }
 
     /**
-	 * Установка список информации по местам (упаковкам).
-	 *
-	 * @param Package $packages Список информации по местам (упаковкам)
-	 *
-	 * @return self
-	 */
-	public function setPackages(Package $packages)
+     * Установка список информации по местам (упаковкам).
+     *
+     * @param Package $packages Список информации по местам (упаковкам)
+     * @return self
+     */
+    public function setPackages(Package $packages)
     {
         $this->packages[] = $packages;
 

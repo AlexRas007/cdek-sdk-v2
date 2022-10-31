@@ -21,9 +21,8 @@ class RegionsResponse extends Source
     /**
      * Код страны в формате  ISO_3166-1_alpha-2.
      *
-     * @example RU, DE, TR
-     *
      * @var string
+     * @example RU, DE, TR
      */
     protected $country_code;
 
@@ -37,9 +36,8 @@ class RegionsResponse extends Source
     /**
      * Код региона (справочник СДЭК).
      *
-     * @deprecated
-     *
      * @var int|null
+     * @deprecated
      */
     protected $region_code;
 

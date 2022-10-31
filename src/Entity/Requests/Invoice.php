@@ -39,7 +39,6 @@ class Invoice extends Source
      * Установить параметр - список заказов.
      *
      * @param Order[] $orders Список заказов
-     *
      * @return self
      */
     public function setOrders($orders)
@@ -53,7 +52,6 @@ class Invoice extends Source
      * Установить параметр - число копий. По умолчанию 1.
      *
      * @param int $copy_count Число копий. По умолчанию 1
-     *
      * @return self
      */
     public function setCopyCount($copy_count = 1)
@@ -67,7 +65,6 @@ class Invoice extends Source
      * Установить параметр - Форма квитанции.
      *
      * @param string $type форма квитанции
-     *
      * @return self
      */
     public function setType($type)
@@ -81,7 +78,6 @@ class Invoice extends Source
      * Экспресс-метод установки адреса.
      *
      * @param array|string $orders_uuid - массив с orders_uuid или один uuid строкой
-     *
      * @return self
      */
     public static function withOrdersUuid($orders_uuid)
@@ -102,7 +98,6 @@ class Invoice extends Source
      * Экспресс-метод установки адреса.
      *
      * @param array|string $cdek_numbers - массив с orders_uuid или один uuid строкой
-     *
      * @return self
      */
     public static function withCdekNumbers($cdek_numbers)

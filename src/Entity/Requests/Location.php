@@ -26,18 +26,16 @@ class Location extends Source
     /**
      * Уникальный идентификатор ФИАС региона населенного пункта.
      *
-     * @deprecated
-     *
      * @var string
+     * @deprecated
      */
     protected $fias_region_guid;
 
     /**
      * Код КЛАДР региона населенного пункта.
      *
-     * @deprecated
-     *
      * @var string
+     * @deprecated
      */
     protected $kladr_region_code;
 
@@ -58,9 +56,8 @@ class Location extends Source
     /**
      * Ограничение на сумму наложенного платежа в населенном пункте.
      *
-     * @deprecated
-     *
      * @var float|null
+     * @deprecated
      */
     protected $payment_limit;
 
@@ -102,7 +99,7 @@ class Location extends Source
     /**
      * Экспресс-метод установки кода локации.
      *
-     * @param int   $code        - код города\региона
+     * @param int $code - код города\региона
      * @param mixed $postal_code
      */
     public static function withPostalCode($postal_code)
@@ -144,7 +141,6 @@ class Location extends Source
 
     /**
      * @param int $code
-     *
      * @return self
      */
     public function setCode($code)
@@ -156,7 +152,6 @@ class Location extends Source
 
     /**
      * @param string $country_code
-     *
      * @return self
      */
     public function setCountryCode($country_code = 'RU')
@@ -168,7 +163,6 @@ class Location extends Source
 
     /**
      * @param mixed $country
-     *
      * @return self
      */
     public function setCountry($country)
@@ -180,7 +174,6 @@ class Location extends Source
 
     /**
      * @param string[] $country_codes
-     *
      * @return self
      */
     public function setCountryCodes($country_codes)
@@ -192,7 +185,6 @@ class Location extends Source
 
     /**
      * @param string $address
-     *
      * @return self
      */
     public function setAddress($address)
@@ -204,7 +196,6 @@ class Location extends Source
 
     /**
      * @param int $postal_code
-     *
      * @return self
      */
     public function setPostalCode($postal_code)
@@ -216,7 +207,6 @@ class Location extends Source
 
     /**
      * @param string $city
-     *
      * @return self
      */
     public function setCity($city)
@@ -228,7 +218,6 @@ class Location extends Source
 
     /**
      * @param string $region
-     *
      * @return self
      */
     public function setRegion($region)
@@ -240,7 +229,6 @@ class Location extends Source
 
     /**
      * @param string $sub_region
-     *
      * @return self
      */
     public function setSubRegion($sub_region)
@@ -252,7 +240,6 @@ class Location extends Source
 
     /**
      * @param int $region_code
-     *
      * @return self
      */
     public function setRegionCode($region_code)
@@ -264,7 +251,6 @@ class Location extends Source
 
     /**
      * @param string $kladr_code
-     *
      * @return self
      */
     public function setKladrCode($kladr_code)
@@ -276,7 +262,6 @@ class Location extends Source
 
     /**
      * @param string $kladr_region_code
-     *
      * @return self
      */
     public function setKladrRegionCode($kladr_region_code)
@@ -288,7 +273,6 @@ class Location extends Source
 
     /**
      * @param string $fias_guid
-     *
      * @return self
      */
     public function setFiasGuid($fias_guid)
@@ -300,7 +284,6 @@ class Location extends Source
 
     /**
      * @param string $size
-     *
      * @return self
      */
     public function setSize($size)
@@ -312,7 +295,6 @@ class Location extends Source
 
     /**
      * @param string $lang
-     *
      * @return self
      */
     public function setLang($lang = 'rus')
@@ -336,7 +318,6 @@ class Location extends Source
      * Устанавливает ограничение на сумму наложенного платежа в населенном пункте.
      *
      * @param float|null $payment_limit Ограничение на сумму наложенного платежа в населенном пункте
-     *
      * @return self
      */
     public function setPaymentLimit($payment_limit)
@@ -398,7 +379,6 @@ class Location extends Source
      * Устанавливает номер страницы выборки результата. По умолчанию 0.
      *
      * @param int|null $page Номер страницы выборки результата. По умолчанию 0.
-     *
      * @return self
      */
     public function setPage($page)

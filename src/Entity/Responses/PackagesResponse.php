@@ -14,6 +14,7 @@ use AntistressStore\CdekSDK2\Traits\PackageTrait;
 class PackagesResponse extends Source
 {
     use PackageTrait;
+
     /**
      *Уникальный номер упаковки в ИС СДЭК.
      *

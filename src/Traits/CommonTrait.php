@@ -59,7 +59,6 @@ trait CommonTrait
      * Устанавливает идентификатор.
      *
      * @param string $uuid Идентификатор заявки
-     *
      * @return self
      */
     public function setUuid($uuid)
@@ -73,7 +72,6 @@ trait CommonTrait
      * Устанавливает идентификатор заказа.
      *
      * @param string $order_uuid Идентификатор заказа
-     *
      * @return self
      */
     public function setOrderUuid($order_uuid)
@@ -87,7 +85,6 @@ trait CommonTrait
      * Устанавливает номер заказа СДЭК.
      *
      * @param int $cdek_number Номер заказа СДЭК
-     *
      * @return self
      */
     public function setCdekNumber($cdek_number)
@@ -189,7 +186,6 @@ trait CommonTrait
      * Установить параметр - комментарий к заказу.
      *
      * @param string $comment комментарий к заказу
-     *
      * @return self
      */
     public function setComment($comment)

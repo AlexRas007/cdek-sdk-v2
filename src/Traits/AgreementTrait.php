@@ -53,9 +53,7 @@ trait AgreementTrait
     /**
      * Устанавливает дата доставки, согласованная с получателем
      *
-     * @param string $date Дата доставки, согласованная с получателем
-     *                     дата в формате 'Y-m-d', пример: 2001-02-03
-     *
+     * @param string $date Дата доставки, согласованная с получателем, дата в формате 'Y-m-d', пример: 2001-02-03
      * @return self
      */
     public function setDate($date)
@@ -68,9 +66,7 @@ trait AgreementTrait
     /**
      * Устанавливает время доставки С, согласованное с получателем (формат H:i).
      *
-     * @param string $time_from Время доставки С, согласованное с получателем (формат H:i)
-     *                          время в формате ISO 8601: hh:mm, пример: 18:15
-     *
+     * @param string $time_from Время доставки С, согласованное с получателем (формат H:i), время в формате ISO 8601: hh:mm, пример: 18:15
      * @return self
      */
     public function setTimeFrom($time_from)
@@ -84,7 +80,6 @@ trait AgreementTrait
      * Устанавливает время доставки ПО, согласованное с получателем (формат H:i).
      *
      * @param string $time_to Время доставки ПО, согласованное с получателем (формат H:i)
-     *
      * @return self
      */
     public function setTimeTo($time_to)
@@ -98,7 +93,6 @@ trait AgreementTrait
      * Устанавливает значение delivery_point.
      *
      * @param string $delivery_point
-     *
      * @return self
      */
     public function setDeliveryPoint($delivery_point)
@@ -108,15 +102,15 @@ trait AgreementTrait
 
             return $this;
         }
-        throw new \InvalidArgumentException('Код ПВЗ delivery_point 
-            нельзя передавать одновременно с параметром Адрес доставки');
+        throw new \InvalidArgumentException(
+            'Код ПВЗ delivery_point нельзя передавать одновременно с параметром Адрес доставки'
+        );
     }
 
     /**
      * Устанавливает to_location - не может быть заполнено одновременно с delivery_point.
      *
      * @param Location $to_location не может быть заполнено одновременно с delivery_point
-     *
      * @return self
      */
     public function setToLocation(Location $to_location)
@@ -126,7 +120,8 @@ trait AgreementTrait
 
             return $this;
         }
-        throw new \InvalidArgumentException('Адрес доставки
-            нельзя передавать одновременно с параметром кода ПВЗ delivery_point');
+        throw new \InvalidArgumentException(
+            'Адрес доставки нельзя передавать одновременно с параметром кода ПВЗ delivery_point'
+        );
     }
 }

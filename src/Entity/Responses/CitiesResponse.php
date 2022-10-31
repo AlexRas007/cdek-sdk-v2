@@ -14,6 +14,7 @@ use AntistressStore\CdekSDK2\Traits\LocationTrait;
 class CitiesResponse extends Source
 {
     use LocationTrait;
+
     /**
      * Часовой пояс населенного пункта.
      *

@@ -160,7 +160,7 @@ class DeliveryPoints extends Location
      * Get код ПВЗ.
      *
      * @return int|null
-	 */
+     */
     public function getCode()
     {
         return $this->code;

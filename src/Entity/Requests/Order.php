@@ -46,7 +46,6 @@ class Order extends Source
      * Если не установлен, в этот  параметр сдэк запишет uuid.
      *
      * @param string $number Номер заказа в ИС Клиента
-     *
      * @return self
      */
     public function setNumber($number)
@@ -61,7 +60,6 @@ class Order extends Source
      * Не может использоваться одновременно с from_location.
      *
      * @param string $shipment_point Код ПВЗ для забора
-     *
      * @return self
      */
     public function setShipmentPoint($shipment_point)
@@ -76,7 +74,6 @@ class Order extends Source
      * Не может использоваться одновременно с to_location.
      *
      * @param string $delivery_point Код ПВЗ СДЭК для доставки
-     *
      * @return self
      */
     public function setDeliveryPoint($delivery_point)
@@ -90,7 +87,6 @@ class Order extends Source
      * Устанавливает код валюты объявленной стоимости заказа.
      *
      * @param string $items_cost_currency Код валюты объявленной стоимости заказа
-     *
      * @return self
      */
     public function setItemsCostCurrency($items_cost_currency)
@@ -104,7 +100,6 @@ class Order extends Source
      * Устанавливает код валюты наложенного платежа.
      *
      * @param string $recipient_currency Код валюты наложенного платежа
-     *
      * @return self
      */
     public function setRecipientCurrency($recipient_currency)
@@ -146,7 +141,6 @@ class Order extends Source
      * Экспресс метод. Устанавливает адрес получателя.
      *
      * @param string $address адрес получателя
-     *
      * @return self
      */
     public function setRecipientAddress($address)
@@ -161,7 +155,6 @@ class Order extends Source
      * Экспресс метод. Устанавливает адрес получателя.
      *
      * @param int $address адрес получателя
-     *
      * @return self
      */
     public function setRecipientCityCode($code)
@@ -172,12 +165,12 @@ class Order extends Source
         return $this;
     }
 
-	/**
-	 * Экспресс метод. Устанавливает код города отправителя.
-	 *
-	 * @param $code
-	 * @return self
-	 */
+    /**
+     * Экспресс метод. Устанавливает код города отправителя.
+     *
+     * @param $code
+     * @return self
+     */
     public function setSenderCityCode($code)
     {
         $this->from_location = (is_null($this->from_location)) ? Location::withCode($code)
@@ -191,7 +184,6 @@ class Order extends Source
      * обязетельно если заказ - международный.
      *
      * @param string|null $date_invoice Дата инвойса
-     *
      * @return self
      */
     public function setDateInvoice($date_invoice)
@@ -206,7 +198,6 @@ class Order extends Source
      * обязетельно если заказ - международный.
      *
      * @param string $shipper_name Грузоотправитель
-     *
      * @return self
      */
     public function setShipperName($shipper_name)
@@ -221,7 +212,6 @@ class Order extends Source
      * обязательно если заказ - международный.
      *
      * @param string $shipper_address Адрес грузоотправителя
-     *
      * @return self
      */
     public function setShipperAddress($shipper_address)
@@ -234,10 +224,9 @@ class Order extends Source
     /**
      * Устанавливает стоимость доставки, которую ИМ берет с получателя.
      *
-     * @param float      $value    Сумма дополнительного сбора
-     * @param float|null $vat_sum  Сумма НДС
-     * @param int|null   $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
-     *
+     * @param float $value Сумма дополнительного сбора
+     * @param float|null $vat_sum Сумма НДС
+     * @param int|null $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
      * @return self
      */
     public function setDeliveryRecipientCost($value = 0.0, $vat_sum = null, $vat_rate = null)
@@ -253,10 +242,10 @@ class Order extends Source
     /**
      * Устанавливает доп. сбор за доставку (которую ИМ берет с получателя) в зависимости от суммы заказа.
      *
-     * @param int        $threshold Порог стоимости товара
-     * @param float      $sum       Сумма дополнительного сбора
-     * @param float|null $vat_sum   Сумма НДС
-     * @param int|null   $vat_rate  Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
+     * @param int $threshold Порог стоимости товара
+     * @param float $sum Сумма дополнительного сбора
+     * @param float|null $vat_sum Сумма НДС
+     * @param int|null $vat_rate Ставка НДС (значение - 0, 10, 18, 20 и т.п. , null - нет НДС)
      */
     public function setDeliveryRecipientCostAdv($threshold, $sum, $vat_sum = null, $vat_rate = null)
     {
@@ -272,7 +261,6 @@ class Order extends Source
      * Устанавливает отправителя.
      *
      * @param Contact $sender Отправитель
-     *
      * @return self
      */
     public function setSender(Contact $sender)
@@ -286,7 +274,6 @@ class Order extends Source
      * Устанавливает реквизиты реального продавца.
      *
      * @param Seller $seller Реквизиты реального продавца
-     *
      * @return self
      */
     public function setSeller(Seller $seller)
@@ -300,7 +287,6 @@ class Order extends Source
      * Устанавливает получатель.
      *
      * @param Contact $recipient Получатель
-     *
      * @return self
      */
     public function setRecipient(Contact $recipient)
@@ -312,7 +298,6 @@ class Order extends Source
 
     /**
      * Устанавливает необходимость печатной формы.
-     *
      * Может принимать значения:
      * barcode - ШК мест (число копий - 1)
      * waybill - квитанция (число копий - 2)

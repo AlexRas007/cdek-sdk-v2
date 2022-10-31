@@ -41,7 +41,7 @@ class WorkTimeListResponse extends Source
      * Получить параметр - Период работы в эти дни. Если в этот день не работают, то не отображается.
      *
      * @return int
-	 */
+     */
     public function getTime()
     {
         return $this->time;
