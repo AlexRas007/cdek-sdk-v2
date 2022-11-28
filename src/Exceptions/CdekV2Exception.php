@@ -17,19 +17,25 @@ class CdekV2Exception extends \Exception
      * @var string
      */
     protected $codeMessage;
+    /**
+     * @var string
+     */
+    protected $messageExtended;
 
     /**
      * Сконструировать исключение. Примечание. Сообщение НЕ является двоично-безопасным.
      *
      * @param string $codeMessage [optional] Код сообщения об исключении, которое нужно выбросить
      * @param string $message [optional] Сообщение об исключении, которое нужно выбросить
+     * @param string $messageExtended [optional] Расширенное сообщение об исключении, которое нужно выбросить
      * @param int $code [optional] Код исключения
      */
-    public function __construct($codeMessage = "", $message = "", $code = 0)
+    public function __construct($codeMessage = "", $message = "", $messageExtended = "", $code = 0)
     {
         parent::__construct($message, $code);
 
         $this->codeMessage = $codeMessage;
+        $this->messageExtended = $messageExtended;
     }
 
     /**
@@ -40,6 +46,16 @@ class CdekV2Exception extends \Exception
     final public function getCodeMessage()
     {
         return $this->codeMessage;
+    }
+
+    /**
+     * Возвращает расширенное сообщение об исключении, которое нужно выбросить.
+     *
+     * @return string Расширенное сообщение об исключении в виде строки
+     */
+    final public function getMessageExtended()
+    {
+        return $this->messageExtended;
     }
 
     /**
