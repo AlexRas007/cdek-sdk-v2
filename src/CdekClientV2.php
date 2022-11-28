@@ -177,7 +177,7 @@ final class CdekClientV2
             ->getContents();
         $apiResponse = json_decode($json, true);
 
-        $this->checkErrors($method, $response, $apiResponse);
+        $this->checkErrors($type, $method, $response, $apiResponse);
 
         return $apiResponse;
     }
@@ -216,7 +216,11 @@ final class CdekClientV2
 
             return true;
         }
-        throw new CdekV2AuthException("error_auth", Constants::AUTH_FAIL);
+        throw new CdekV2AuthException(
+			"error_auth",
+			'СДЭК: ' . Constants::AUTH_FAIL,
+			Constants::AUTH_FAIL
+		);
     }
 
     /**
@@ -320,24 +324,26 @@ final class CdekClientV2
     /**
      * Проверка ответа на ошибки.
      *
+     * @param mixed $type
      * @param mixed $method
      * @param mixed $response
      * @param mixed $apiResponse
      * @return bool
      * @throws CdekV2RequestException
      */
-    private function checkErrors($method, $response, $apiResponse)
+    private function checkErrors($type, $method, $response, $apiResponse)
     {
         if (empty($apiResponse)) {
             throw new CdekV2RequestException(
                 "empty_response",
+				'СДЭК: пришел пустой ответ',
                 'От API CDEK при вызове метода ' . $method . ' пришел пустой ответ',
                 $response->getStatusCode()
             );
         }
         if (
             ($response->getStatusCode() > 202 && isset($apiResponse['requests'][0]['errors']))
-            || (isset($apiResponse['requests'][0]['state']) && $apiResponse['requests'][0]['state'] === 'INVALID')
+            || ($type !== 'GET' && isset($apiResponse['requests'][0]['state']) && $apiResponse['requests'][0]['state'] === 'INVALID')
         ) {
             $message = CdekV2RequestException::getTranslation(
                 $apiResponse['requests'][0]['errors'][0]['code'],
@@ -345,13 +351,14 @@ final class CdekClientV2
             );
             throw new CdekV2RequestException(
                 $apiResponse['requests'][0]['errors'][0]['code'],
+				'СДЭК: ' . $message,
                 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message,
                 $response->getStatusCode()
             );
         }
         if (
-            ($response->getStatusCode() == 200 && isset($apiResponse['errors']))
-            || (isset($apiResponse['state']) && $apiResponse['state'] === 'INVALID')
+            ($type !== 'GET' && $response->getStatusCode() == 200 && isset($apiResponse['errors']))
+            || ($type !== 'GET' && isset($apiResponse['state']) && $apiResponse['state'] === 'INVALID')
             || ($response->getStatusCode() !== 200 && isset($apiResponse['errors']))
         ) {
             $message = CdekV2RequestException::getTranslation(
@@ -360,14 +367,17 @@ final class CdekClientV2
             );
             throw new CdekV2RequestException(
                 $apiResponse['errors'][0]['code'],
+				'СДЭК: ' . $message,
                 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message,
                 $response->getStatusCode()
             );
         }
         if ($response->getStatusCode() > 202 && !isset($apiResponse['requests'][0]['errors'])) {
             throw new CdekV2RequestException(
-                "error_response", 'Неверный код ответа от сервера CDEK при вызове метода 
-             ' . $method . ': ' . $response->getStatusCode(), $response->getStatusCode()
+                "error_response",
+				'СДЭК: Неверный код ответа: ' . $response->getStatusCode(),
+				'Неверный код ответа от сервера CDEK при вызове метода ' . $method . ': ' . $response->getStatusCode(),
+				$response->getStatusCode()
             );
         }
 

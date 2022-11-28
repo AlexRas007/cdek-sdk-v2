@@ -23,7 +23,11 @@ class Source
     {
         if ($properties !== null) {
             if (!$processedEntity && isset($properties['entity']) && count($properties['entity']) > 1) {
-                $properties = $properties['entity'];
+				if (isset($properties['requests']) && count($properties['requests']) > 1) {
+					$properties['entity']['requests'] = $properties['requests'];
+				}
+
+				$properties = $properties['entity'];
             }
 
             foreach ($properties as $key => $value) {
