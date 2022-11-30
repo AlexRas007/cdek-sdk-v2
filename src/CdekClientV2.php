@@ -217,10 +217,10 @@ final class CdekClientV2
             return true;
         }
         throw new CdekV2AuthException(
-			"error_auth",
-			'СДЭК: ' . Constants::AUTH_FAIL,
-			Constants::AUTH_FAIL
-		);
+            "error_auth",
+            'СДЭК: ' . Constants::AUTH_FAIL,
+            Constants::AUTH_FAIL
+        );
     }
 
     /**
@@ -336,7 +336,7 @@ final class CdekClientV2
         if (empty($apiResponse)) {
             throw new CdekV2RequestException(
                 "empty_response",
-				'СДЭК: пришел пустой ответ',
+                'СДЭК: пришел пустой ответ',
                 'От API CDEK при вызове метода ' . $method . ' пришел пустой ответ',
                 $response->getStatusCode()
             );
@@ -351,7 +351,7 @@ final class CdekClientV2
             );
             throw new CdekV2RequestException(
                 $apiResponse['requests'][0]['errors'][0]['code'],
-				'СДЭК: ' . $message,
+                'СДЭК: ' . $message,
                 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message,
                 $response->getStatusCode()
             );
@@ -367,7 +367,7 @@ final class CdekClientV2
             );
             throw new CdekV2RequestException(
                 $apiResponse['errors'][0]['code'],
-				'СДЭК: ' . $message,
+                'СДЭК: ' . $message,
                 'От API CDEK при вызове метода ' . $method . ' получена ошибка: ' . $message,
                 $response->getStatusCode()
             );
@@ -375,9 +375,9 @@ final class CdekClientV2
         if ($response->getStatusCode() > 202 && !isset($apiResponse['requests'][0]['errors'])) {
             throw new CdekV2RequestException(
                 "error_response",
-				'СДЭК: Неверный код ответа: ' . $response->getStatusCode(),
-				'Неверный код ответа от сервера CDEK при вызове метода ' . $method . ': ' . $response->getStatusCode(),
-				$response->getStatusCode()
+                'СДЭК: Неверный код ответа: ' . $response->getStatusCode(),
+                'Неверный код ответа от сервера CDEK при вызове метода ' . $method . ': ' . $response->getStatusCode(),
+                $response->getStatusCode()
             );
         }
 
