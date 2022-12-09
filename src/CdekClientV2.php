@@ -352,7 +352,7 @@ final class CdekClientV2
             $messageFull = CdekV2RequestException::getTranslation(
                 $apiResponse['requests'][0]['errors'][0]['code'],
                 $apiResponse['requests'][0]['errors'][0]['message'],
-            true
+                true
             );
             throw new CdekV2RequestException(
                 $apiResponse['requests'][0]['errors'][0]['code'],
@@ -373,7 +373,7 @@ final class CdekClientV2
             $messageFull = CdekV2RequestException::getTranslation(
                 $apiResponse['errors'][0]['code'],
                 $apiResponse['errors'][0]['message'],
-            true
+                true
             );
             throw new CdekV2RequestException(
                 $apiResponse['errors'][0]['code'],
