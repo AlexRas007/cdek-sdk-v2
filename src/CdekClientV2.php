@@ -347,8 +347,13 @@ final class CdekClientV2
         ) {
             $message = CdekV2RequestException::getTranslation($apiResponse['requests'][0]['errors'][0]['code']);
             $messageFull = CdekV2RequestException::getTranslation(
+				$apiResponse['requests'][0]['errors'][0]['code'],
+				$apiResponse['requests'][0]['errors'][0]['message']
+			);
+            $messageFull = CdekV2RequestException::getTranslation(
                 $apiResponse['requests'][0]['errors'][0]['code'],
-                $apiResponse['requests'][0]['errors'][0]['message']
+                $apiResponse['requests'][0]['errors'][0]['message'],
+				true
             );
             throw new CdekV2RequestException(
                 $apiResponse['requests'][0]['errors'][0]['code'],
@@ -364,8 +369,13 @@ final class CdekClientV2
         ) {
             $message = CdekV2RequestException::getTranslation($apiResponse['errors'][0]['code']);
             $messageFull = CdekV2RequestException::getTranslation(
-                $apiResponse['errors'][0]['code'],
+				$apiResponse['errors'][0]['code'],
                 $apiResponse['errors'][0]['message']
+			);
+            $messageFull = CdekV2RequestException::getTranslation(
+                $apiResponse['errors'][0]['code'],
+                $apiResponse['errors'][0]['message'],
+				true
             );
             throw new CdekV2RequestException(
                 $apiResponse['errors'][0]['code'],
@@ -377,7 +387,7 @@ final class CdekClientV2
         if ($response->getStatusCode() > 202 && !isset($apiResponse['requests'][0]['errors'])) {
             throw new CdekV2RequestException(
                 "error_response",
-                'СДЭК: Неверный код ответа: ' . $response->getStatusCode(),
+                'Неверный код ответа СДЭК: ' . $response->getStatusCode(),
                 'Неверный код ответа от сервера CDEK при вызове метода ' . $method . ': ' . $response->getStatusCode(),
                 $response->getStatusCode()
             );
