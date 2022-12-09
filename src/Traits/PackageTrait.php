@@ -13,12 +13,12 @@ use AntistressStore\CdekSDK2\Entity\Requests\Item;
 
 trait PackageTrait
 {
-	/**
-	 * Уникальный номер упаковки.
-	 *
-	 * @var string
-	 */
-	protected $package_id;
+    /**
+     * Уникальный номер упаковки.
+     *
+     * @var string
+     */
+    protected $package_id;
 
     /**
      * Номер упаковки.
@@ -69,15 +69,15 @@ trait PackageTrait
      */
     protected $items;
 
-	/**
-	 * Возвращает уникальный номер упаковки.
-	 *
-	 * @return string
-	 */
-	public function getPackageId()
-	{
-		return $this->package_id;
-	}
+    /**
+     * Возвращает уникальный номер упаковки.
+     *
+     * @return string
+     */
+    public function getPackageId()
+    {
+        return $this->package_id;
+    }
 
     /**
      * Устанавливает уникальный номер упаковки.
@@ -92,15 +92,15 @@ trait PackageTrait
         return $this;
     }
 
-	/**
-	 * Возвращает номер упаковки.
-	 *
-	 * @return string
-	 */
-	public function getNumber()
-	{
-		return $this->number;
-	}
+    /**
+     * Возвращает номер упаковки.
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
 
     /**
      * Устанавливает номер упаковки.
