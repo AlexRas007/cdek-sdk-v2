@@ -67,7 +67,7 @@ class CdekV2Exception extends \Exception
     public static function getTranslation($code, $message, $full = false)
     {
         if (array_key_exists($code, Constants::ERRORS)) {
-			$messagePostfix = ($full) ? '. ' . $message : '.';
+            $messagePostfix = ($full) ? '. ' . $message : '.';
             return Constants::ERRORS[$code] . $messagePostfix;
         }
 

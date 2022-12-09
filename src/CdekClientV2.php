@@ -345,15 +345,14 @@ final class CdekClientV2
             ($response->getStatusCode() > 202 && isset($apiResponse['requests'][0]['errors']))
             || ($type !== 'GET' && isset($apiResponse['requests'][0]['state']) && $apiResponse['requests'][0]['state'] === 'INVALID')
         ) {
-            $message = CdekV2RequestException::getTranslation($apiResponse['requests'][0]['errors'][0]['code']);
-            $messageFull = CdekV2RequestException::getTranslation(
-				$apiResponse['requests'][0]['errors'][0]['code'],
-				$apiResponse['requests'][0]['errors'][0]['message']
-			);
+            $message = CdekV2RequestException::getTranslation(
+                $apiResponse['requests'][0]['errors'][0]['code'],
+                $apiResponse['requests'][0]['errors'][0]['message']
+            );
             $messageFull = CdekV2RequestException::getTranslation(
                 $apiResponse['requests'][0]['errors'][0]['code'],
                 $apiResponse['requests'][0]['errors'][0]['message'],
-				true
+            true
             );
             throw new CdekV2RequestException(
                 $apiResponse['requests'][0]['errors'][0]['code'],
@@ -367,15 +366,14 @@ final class CdekClientV2
             || ($type !== 'GET' && isset($apiResponse['state']) && $apiResponse['state'] === 'INVALID')
             || ($response->getStatusCode() !== 200 && isset($apiResponse['errors']))
         ) {
-            $message = CdekV2RequestException::getTranslation($apiResponse['errors'][0]['code']);
-            $messageFull = CdekV2RequestException::getTranslation(
-				$apiResponse['errors'][0]['code'],
+            $message = CdekV2RequestException::getTranslation(
+                $apiResponse['errors'][0]['code'],
                 $apiResponse['errors'][0]['message']
-			);
+            );
             $messageFull = CdekV2RequestException::getTranslation(
                 $apiResponse['errors'][0]['code'],
                 $apiResponse['errors'][0]['message'],
-				true
+            true
             );
             throw new CdekV2RequestException(
                 $apiResponse['errors'][0]['code'],
