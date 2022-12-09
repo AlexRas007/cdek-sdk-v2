@@ -60,10 +60,10 @@ class CdekV2Exception extends \Exception
 
     /**
      * @param string $code
-     * @param string $message
+     * @param string|null $message
      * @return string
      */
-    public static function getTranslation($code, $message)
+    public static function getTranslation($code, $message = null)
     {
         if (array_key_exists($code, Constants::ERRORS)) {
             return Constants::ERRORS[$code] . '. ' . $message;
